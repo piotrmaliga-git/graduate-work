@@ -25,9 +25,13 @@ export class AnalyzerComponent {
 
   models = [
     { id: 'gpt-3.5-turbo', name: 'GPT-3.5 Turbo (Old)' },
-    { id: 'gpt-4-turbo', name: 'GPT-4 Turbo' },
-    { id: 'gpt-4.1-turbo', name: 'GPT-4.1 Turbo (New)' },
-    { id: 'gemini-1.5-pro', name: 'Gemini 1.5 Pro' },
+    { id: 'gpt-4.1', name: 'GPT-4.1 (New)' },
+    { id: 'gemini-2.0-flash', name: 'Gemini 2.0 Flash (Old)' },
+    { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro (New)' },
+    { id: 'llama-cloud', name: 'Llama Cloud' },
+    { id: 'roberta-baseline', name: 'RoBERTa (Baseline MNLI)' },
+    { id: 'bielik-4bit', name: 'Bielik (4-bit)' },
+    { id: 'bielik2-4bit', name: 'Bielik 2 (4-bit)' },
   ];
 
   onAnalyze() {

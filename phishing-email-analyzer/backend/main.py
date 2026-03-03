@@ -1,12 +1,21 @@
 import os
 import json
+import re
 from datetime import datetime
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from openai import OpenAI
-import google.generativeai as genai
+from typing import Optional
+
+import uvicorn
 from dotenv import load_dotenv
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from google import genai
+from openai import OpenAI
+from pydantic import BaseModel
+
+from models.bielik import classify_with_bielik
+from models.bielik2 import classify_with_bielik2
+from models.llama import classify_with_llama
+from models.roberta import classify_with_roberta
 
 load_dotenv()
 
@@ -23,16 +32,14 @@ app.add_middleware(
 
 # Initialize clients
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+gemini_client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
-RESULTS_DIR = "results"
-os.makedirs(RESULTS_DIR, exist_ok=True)
+REPO_ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+REPORTS_DIR = os.path.join(REPO_ROOT_DIR, "reports")
+os.makedirs(REPORTS_DIR, exist_ok=True)
 
 # System prompt for phishing classification
 SYSTEM_PROMPT = "You are a phishing classifier. Analyze the email text and respond with ONLY 'phishing' or 'legit', nothing else."
-
-
-from typing import Optional
 
 class EmailRequest(BaseModel):
     email_text: str
@@ -59,13 +66,69 @@ def classify_with_openai(email_text: str, model: str) -> str:
 def classify_with_gemini(email_text: str, model: str) -> str:
     """Classify email using Google Gemini models."""
     try:
-        model_obj = genai.GenerativeModel(model)
-        response = model_obj.generate_content(
-            f"{SYSTEM_PROMPT}\n\nEmail:\n{email_text}"
+        response = gemini_client.models.generate_content(
+            model=model,
+            contents=f"{SYSTEM_PROMPT}\n\nEmail:\n{email_text}"
         )
         return response.text.strip().lower()
     except Exception as e:
         return f"error: {str(e)}"
+
+
+def build_decision_reason(email_text: str, prediction: str) -> str:
+    text = email_text.lower()
+    signals: list[str] = []
+
+    urgency_patterns = [
+        r"pilnie",
+        r"natychmiast",
+        r"urgent",
+        r"immediately",
+        r"asap",
+        r"w\s*24h",
+    ]
+    credential_patterns = [
+        r"has[łl]o",
+        r"password",
+        r"login",
+        r"logowania",
+        r"konto",
+        r"account",
+        r"verify",
+        r"potwierd[źz]",
+    ]
+    action_patterns = [
+        r"kliknij",
+        r"click",
+        r"link",
+        r"za[łl][ąa]cznik",
+        r"attachment",
+        r"zaloguj",
+        r"log in",
+    ]
+
+    if any(re.search(pattern, text) for pattern in urgency_patterns):
+        signals.append("presja czasu")
+
+    if any(re.search(pattern, text) for pattern in credential_patterns):
+        signals.append("prośba o dane logowania lub weryfikację konta")
+
+    if any(re.search(pattern, text) for pattern in action_patterns):
+        signals.append("nakłanianie do szybkiej akcji (link/kliknięcie/logowanie)")
+
+    if prediction == "phishing":
+        if signals:
+            return "Model wskazał phishing, ponieważ wykryto sygnały ryzyka: " + ", ".join(signals) + "."
+        return "Model wskazał phishing na podstawie ogólnego wzorca oszustwa w treści wiadomości."
+
+    if signals:
+        return (
+            "Model wskazał legit, ale wykryto pewne sygnały ryzyka: "
+            + ", ".join(signals)
+            + ". Warto zachować ostrożność."
+        )
+
+    return "Model wskazał legit, ponieważ treść nie zawiera typowych oznak phishingu (presji czasu, próśb o dane ani podejrzanych wezwań do działania)."
 
 
 @app.get("/")
@@ -74,10 +137,13 @@ async def root():
         "message": "Phishing Detection API",
         "available_models": [
             "gpt-3.5-turbo",
-            "gpt-4-turbo",
-            "gpt-4.1-turbo",
-            "gemini-1.0-pro",
-            "gemini-1.5-pro"
+            "gpt-4.1",
+            "gemini-2.0-flash",
+            "gemini-2.5-pro",
+            "llama-cloud",
+            "bielik-4bit",
+            "bielik2-4bit",
+            "roberta-baseline"
         ]
     }
 
@@ -91,12 +157,24 @@ async def analyze_email(request: EmailRequest):
         result = classify_with_openai(request.email_text, model)
     elif model.startswith("gemini"):
         result = classify_with_gemini(request.email_text, model)
+    elif model.startswith("llama"):
+        result = await classify_with_llama(request.email_text)
+    elif model.startswith("bielik2"):
+        result = classify_with_bielik2(request.email_text)
+    elif model.startswith("bielik"):
+        result = classify_with_bielik(request.email_text)
+    elif model.startswith("roberta"):
+        result = classify_with_roberta(request.email_text)
     else:
         return {"error": "Unknown model"}
+
+    if result.startswith("error:"):
+        raise HTTPException(status_code=400, detail=result)
 
     response = {
         "model": model,
         "prediction": result,
+        "reason": build_decision_reason(request.email_text, result),
         "timestamp": datetime.utcnow().isoformat()
     }
     if request.sender:
@@ -109,9 +187,9 @@ async def analyze_batch(batch_request: dict):
     """Analyze multiple emails with all 4 models."""
     models = [
         "gpt-3.5-turbo",
-        "gpt-4-turbo",
-        "gpt-4.1-turbo",
-        "gemini-1.5-pro"
+        "gpt-4.1",
+        "gemini-2.0-flash",
+        "gemini-2.5-pro"
     ]
 
     # load dataset from centralized data folder
@@ -150,7 +228,7 @@ async def analyze_batch(batch_request: dict):
             print(f"Processed {idx + 1}/{len(dataset)} emails...")
 
     # Save results
-    filename = f"{RESULTS_DIR}/batch_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.json"
+    filename = os.path.join(REPORTS_DIR, f"batch_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.json")
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(all_results, f, indent=2, ensure_ascii=False)
 
@@ -160,3 +238,7 @@ async def analyze_batch(batch_request: dict):
         "total_emails": len(dataset),
         "models_tested": models
     }
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="127.0.0.1", port=8000)
