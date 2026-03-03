@@ -52,7 +52,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-prefix",
         default=None,
-        help="Output prefix path (without extension). By default saved in ../reports.",
+        help="Output prefix path (without extension). By default saved in workspace /reports.",
     )
     return parser.parse_args()
 
@@ -156,11 +156,12 @@ def main() -> None:
 
     backend_dir = Path(__file__).resolve().parent
     project_root = backend_dir.parent
-    results_dir = project_root / "reports"
+    workspace_root = project_root.parent
+    reports_dir = workspace_root / "reports"
 
     safe_model = args.model.replace("/", "_").replace(":", "_")
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-    default_prefix = results_dir / f"api_batch_{safe_model}_{timestamp}"
+    default_prefix = reports_dir / f"api_batch_{safe_model}_{timestamp}"
     output_prefix = Path(args.output_prefix).resolve() if args.output_prefix else default_prefix
 
     rows: list[dict] = []
