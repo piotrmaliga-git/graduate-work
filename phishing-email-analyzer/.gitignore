@@ -12,6 +12,8 @@ env/
 
 # Results and temporary data
 /results/
+/data/
+# TEMPORARY: ignore whole data folder in git until data versioning/storage strategy is finalized
 /data/*.json
 
 # Node/Angular
