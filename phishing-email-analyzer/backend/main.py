@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import time
 from datetime import datetime
 from typing import Optional
 
@@ -41,7 +42,8 @@ os.makedirs(REPORTS_DIR, exist_ok=True)
 class EmailRequest(BaseModel):
     email_text: str
     model_name: str = "gpt-3.5-turbo"
-    sender: Optional[str] = None
+    sender: str
+    title: str
 
 
 def build_decision_reason(email_text: str, prediction: str) -> str:
@@ -120,7 +122,11 @@ async def root():
 async def analyze_email(request: EmailRequest):
     """Analyze a single email."""
     model = request.model_name
+    
+    # Start timing
+    start_time = time.time()
 
+    # Call the appropriate model
     if model == "gpt-4.1":
         result = classify_with_gpt4_1(request.email_text)
     elif model == "mistral-7b":
@@ -138,17 +144,34 @@ async def analyze_email(request: EmailRequest):
     else:
         return {"error": "Unknown model"}
 
-    if result.startswith("error:"):
-        raise HTTPException(status_code=400, detail=result)
+    # Handle both tuple (prediction, reason) and string returns
+    if isinstance(result, tuple):
+        prediction, reason = result
+    else:
+        prediction = result
+        reason = None
+    
+    # Check for errors
+    if isinstance(prediction, str) and prediction.startswith("error:"):
+        raise HTTPException(status_code=400, detail=prediction)
+
+    # Use model's reason if available, otherwise fallback to pattern-based reason
+    if not reason:
+        reason = build_decision_reason(request.email_text, prediction)
+    
+    # Calculate response time
+    end_time = time.time()
+    response_time_ms = round((end_time - start_time) * 1000, 2)
 
     response = {
         "model": model,
-        "prediction": result,
-        "reason": build_decision_reason(request.email_text, result),
-        "timestamp": datetime.utcnow().isoformat()
+        "prediction": prediction,
+        "reason": reason,
+        "timestamp": datetime.utcnow().isoformat(),
+        "response_time_ms": response_time_ms,
+        "sender": request.sender,
+        "title": request.title
     }
-    if request.sender:
-        response["sender"] = request.sender
     return response
 
 
