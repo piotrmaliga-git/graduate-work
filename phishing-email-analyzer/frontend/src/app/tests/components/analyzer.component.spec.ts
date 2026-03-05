@@ -21,7 +21,7 @@ describe('AnalyzerComponent', () => {
   });
 
   it('should expose expected models list', () => {
-    expect(component.models.length).toBe(8);
+    expect(component.models.length).toBe(7);
     expect(component.models.map((model) => model.id)).toContain('gpt-4.1');
     expect(component.models.map((model) => model.id)).toContain('bielik2-4bit');
   });
@@ -49,6 +49,7 @@ describe('AnalyzerComponent', () => {
       emailText: 'Important email content',
       selectedModel: 'gpt-4.1',
       sender: 'sender@example.com',
+      title: '',
     });
   });
 

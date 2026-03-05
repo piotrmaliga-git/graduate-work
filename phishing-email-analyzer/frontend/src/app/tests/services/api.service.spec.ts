@@ -26,6 +26,7 @@ describe('ApiService', () => {
       email_text: 'Test email body',
       model_name: 'gpt-4.1',
       sender: 'attacker@example.com',
+      title: 'Suspicious Email',
     };
 
     const mockResponse: AnalysisResult = {
@@ -34,6 +35,8 @@ describe('ApiService', () => {
       reason: 'Suspicious links and urgency',
       timestamp: '2026-03-03T10:00:00Z',
       sender: 'attacker@example.com',
+      title: 'Suspicious Email',
+      response_time_ms: 890,
     };
 
     let result: AnalysisResult | undefined;

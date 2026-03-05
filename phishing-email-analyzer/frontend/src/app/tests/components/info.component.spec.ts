@@ -21,7 +21,8 @@ describe('InfoComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
     expect(compiled.textContent).toContain('Available Models');
-    expect(compiled.textContent).toContain('GPT-4.1 (New)');
+    expect(compiled.textContent).toContain('GPT-4.1:');
+    expect(compiled.textContent).toContain('Latest OpenAI model');
     expect(compiled.textContent).toContain('Bielik 2 (4-bit)');
   });
 });

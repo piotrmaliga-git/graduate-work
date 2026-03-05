@@ -32,6 +32,8 @@ describe('ResultsComponent', () => {
       reason: 'Suspicious URL domain',
       timestamp: '2026-03-03T11:00:00Z',
       sender: 'attacker@example.com',
+      title: 'Urgent Account Verification',
+      response_time_ms: 1234,
     };
 
     fixture.componentRef.setInput('result', result);
@@ -52,6 +54,8 @@ describe('ResultsComponent', () => {
       reason: '',
       timestamp: '2026-03-03T11:00:00Z',
       sender: 'sender@example.com',
+      title: 'Newsletter',
+      response_time_ms: 567,
     };
 
     fixture.componentRef.setInput('result', result);

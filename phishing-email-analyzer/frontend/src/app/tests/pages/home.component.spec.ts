@@ -20,6 +20,8 @@ describe('HomePageComponent', () => {
       reason: 'Suspicious content',
       timestamp: '2026-03-03T12:00:00Z',
       sender: 'attacker@example.com',
+      title: 'Test Email',
+      response_time_ms: 1500,
     };
     apiServiceMock.analyze.mockReturnValue(of(response));
 
@@ -27,12 +29,14 @@ describe('HomePageComponent', () => {
       emailText: 'Mail body',
       selectedModel: 'gpt-4.1',
       sender: 'sender@example.com',
+      title: 'Test Email',
     });
 
     expect(apiServiceMock.analyze).toHaveBeenCalledWith({
       email_text: 'Mail body',
       model_name: 'gpt-4.1',
       sender: 'sender@example.com',
+      title: 'Test Email',
     });
     expect(component.result()).toEqual(response);
     expect(component.error()).toBe('');
@@ -47,6 +51,8 @@ describe('HomePageComponent', () => {
     await component.onAnalyzeRequest({
       emailText: 'Mail body',
       selectedModel: 'gpt-4.1',
+      sender: 'test@example.com',
+      title: 'Test',
     });
 
     expect(component.result()).toBeNull();
