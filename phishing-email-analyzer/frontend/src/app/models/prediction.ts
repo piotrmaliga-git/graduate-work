@@ -1,7 +1,8 @@
 export interface EmailRequest {
   email_text: string;
   model_name: string;
-  sender?: string;
+  sender: string;
+  title: string;
 }
 
 export interface AnalysisResult {
@@ -10,4 +11,7 @@ export interface AnalysisResult {
   reason: string;
   timestamp: string;
   sender: string;
+  title: string;
+  response_time_ms: number;
+  frontend_time_ms?: number;
 }
