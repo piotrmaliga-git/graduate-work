@@ -35,6 +35,9 @@ classify_with_mistral_7b = mistral_module.classify_with_mistral_7b
 llama_cloud_module = load_model_module('llama_cloud', os.path.join(MODELS_DIR, 'llama_cloud.py'))
 classify_with_llama_cloud = llama_cloud_module.classify_with_llama_cloud
 
+bielik2_module = load_model_module('bielik2_4bit', os.path.join(MODELS_DIR, 'bielik2_4bit.py'))
+classify_with_bielik2 = bielik2_module.classify_with_bielik2
+
 load_dotenv()
 
 app = FastAPI()
@@ -126,7 +129,8 @@ async def root():
             "gpt-4.1",
             "gemini-2.5-pro",
             "mistral-7b",
-            "llama-cloud"
+            "llama-cloud",
+            "bielik-2-4bit"
         ]
     }
 
@@ -148,6 +152,8 @@ async def analyze_email(request: EmailRequest):
         result = classify_with_mistral_7b(request.email_text)
     elif model == "llama-cloud":
         result = classify_with_llama_cloud(request.email_text)
+    elif model == "bielik-2-4bit":
+        result = classify_with_bielik2(request.email_text)
     else:
         return {"error": "Unknown model"}
 
@@ -199,6 +205,7 @@ async def analyze_batch(batch_request: dict):
         "gemini-2.5-pro",
         "mistral-7b",
         "llama-cloud",
+        "bielik-2-4bit",
     ]
 
     # load dataset from workspace-root data folder
@@ -229,6 +236,8 @@ async def analyze_batch(batch_request: dict):
                     prediction = classify_with_mistral_7b(email["text"])
                 elif model == "llama-cloud":
                     prediction = classify_with_llama_cloud(email["text"])
+                elif model == "bielik-2-4bit":
+                    prediction = classify_with_bielik2(email["text"])
                 elif model.startswith("gemini"):
                     prediction = classify_with_gemini(email["text"], model)
                 else:
