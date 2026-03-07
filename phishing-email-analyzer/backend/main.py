@@ -4,6 +4,7 @@ import re
 import time
 from datetime import datetime
 from typing import Optional
+import importlib.util
 
 import uvicorn
 from dotenv import load_dotenv
@@ -11,13 +12,28 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-from models.bielik_4bit import classify_with_bielik
-from models.bielik2_4bit import classify_with_bielik2
-from models.gemini import classify_with_gemini
-from models.gpt_4_1 import classify_with_gpt4_1
-from models.llama_cloud import classify_with_llama
-from models.mistral_7b import classify_with_mistral_7b
-from models.roberta_large_mnli import classify_with_roberta
+# Import models using importlib.util for non-standard names
+def load_model_module(module_name, file_path):
+    spec = importlib.util.spec_from_file_location(module_name, file_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+# Get the models directory path
+MODELS_DIR = os.path.join(os.path.dirname(__file__), 'models')
+
+# Load all models
+gpt_4_1_module = load_model_module('gpt_4_1', os.path.join(MODELS_DIR, 'gpt_4.1.py'))
+classify_with_gpt4_1 = gpt_4_1_module.classify_with_gpt4_1
+
+gemini_module = load_model_module('gemini', os.path.join(MODELS_DIR, 'gemini_2.5-pro.py'))
+classify_with_gemini = gemini_module.classify_with_gemini
+
+mistral_module = load_model_module('mistral_7b', os.path.join(MODELS_DIR, 'mistral_7b.py'))
+classify_with_mistral_7b = mistral_module.classify_with_mistral_7b
+
+llama_cloud_module = load_model_module('llama_cloud', os.path.join(MODELS_DIR, 'llama_cloud.py'))
+classify_with_llama_cloud = llama_cloud_module.classify_with_llama_cloud
 
 load_dotenv()
 
@@ -41,7 +57,7 @@ os.makedirs(REPORTS_DIR, exist_ok=True)
 
 class EmailRequest(BaseModel):
     email_text: str
-    model_name: str = "gpt-3.5-turbo"
+    model_name: str = "gpt-4.1"
     sender: str
     title: str
 
@@ -109,11 +125,8 @@ async def root():
         "available_models": [
             "gpt-4.1",
             "gemini-2.5-pro",
-            "llama-cloud",
             "mistral-7b",
-            "bielik-4bit",
-            "bielik2-4bit",
-            "roberta-baseline"
+            "llama-cloud"
         ]
     }
 
@@ -129,18 +142,12 @@ async def analyze_email(request: EmailRequest):
     # Call the appropriate model
     if model == "gpt-4.1":
         result = classify_with_gpt4_1(request.email_text)
+    elif model == "gemini-2.5-pro":
+        result = classify_with_gemini(request.email_text, model)
     elif model == "mistral-7b":
         result = classify_with_mistral_7b(request.email_text)
-    elif model.startswith("gemini"):
-        result = classify_with_gemini(request.email_text, model)
-    elif model.startswith("llama"):
-        result = await classify_with_llama(request.email_text)
-    elif model.startswith("bielik2"):
-        result = classify_with_bielik2(request.email_text)
-    elif model.startswith("bielik"):
-        result = classify_with_bielik(request.email_text)
-    elif model.startswith("roberta"):
-        result = classify_with_roberta(request.email_text)
+    elif model == "llama-cloud":
+        result = classify_with_llama_cloud(request.email_text)
     else:
         return {"error": "Unknown model"}
 
@@ -177,8 +184,11 @@ async def analyze_email(request: EmailRequest):
 
 @app.post("/test-all-models")
 async def test_models_endpoint(request: EmailRequest):
-    """Test all available models on a given email."""
-    return await test_all_models(request.email_text)
+    """Legacy endpoint kept for compatibility."""
+    raise HTTPException(
+        status_code=501,
+        detail="Endpoint not implemented. Use /analyze or /analyze-batch.",
+    )
 
 
 @app.post("/analyze-batch")
@@ -187,11 +197,8 @@ async def analyze_batch(batch_request: dict):
     models = [
         "gpt-4.1",
         "gemini-2.5-pro",
-        "llama-cloud",
         "mistral-7b",
-        "bielik-4bit",
-        "bielik2-4bit",
-        "roberta-baseline"
+        "llama-cloud",
     ]
 
     # load dataset from workspace-root data folder
@@ -220,16 +227,10 @@ async def analyze_batch(batch_request: dict):
                     prediction = classify_with_gpt4_1(email["text"])
                 elif model == "mistral-7b":
                     prediction = classify_with_mistral_7b(email["text"])
+                elif model == "llama-cloud":
+                    prediction = classify_with_llama_cloud(email["text"])
                 elif model.startswith("gemini"):
                     prediction = classify_with_gemini(email["text"], model)
-                elif model.startswith("llama"):
-                    prediction = await classify_with_llama(email["text"])
-                elif model.startswith("bielik2"):
-                    prediction = classify_with_bielik2(email["text"])
-                elif model.startswith("bielik"):
-                    prediction = classify_with_bielik(email["text"])
-                elif model.startswith("roberta"):
-                    prediction = classify_with_roberta(email["text"])
                 else:
                     prediction = "error: Unknown model"
             except Exception as e:
