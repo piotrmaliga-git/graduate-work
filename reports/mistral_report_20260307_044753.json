@@ -1,0 +1,4515 @@
+{
+  "model": "mistral-7b",
+  "timestamp": "2026-03-07T04:47:53.226712",
+  "dataset_size": 500,
+  "processed": 500,
+  "errors": 0,
+  "interrupted": false,
+  "metrics": {
+    "correct": 357,
+    "incorrect": 143,
+    "accuracy": 71.4
+  },
+  "results": [
+    {
+      "id": 1,
+      "title": "Alert bezpieczenstwa: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 2,
+      "title": "Pilne potwierdzenie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 3,
+      "title": "Nieudana platnosc: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 4,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:6527703]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 5,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:8284249]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 6,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:0898612]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 7,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:7223688]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 8,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:7084392]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 9,
+      "title": "Bilet i agenda wydarzenia [ID:5044170]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 10,
+      "title": "Bilet i agenda wydarzenia [ID:5612783]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 11,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:9229484]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 12,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:9154716]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 13,
+      "title": "Alert bezpieczenstwa: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@googIe-account-alert.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 14,
+      "title": "Nieudana platnosc: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 15,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:6519062]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 16,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:0975992]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 17,
+      "title": "Bilet i agenda wydarzenia [ID:9671739]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 18,
+      "title": "Niestandardowe logowanie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@paypaI-verification.net>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 19,
+      "title": "Wymagane dzialanie: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 20,
+      "title": "Potwierdzenie wysylki zamowienia [ID:9948209]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 21,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:2245993]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 22,
+      "title": "Komunikat o przegladzie instalacji [ID:1814495]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 23,
+      "title": "Alert bezpieczenstwa: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@arnazon-support.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 24,
+      "title": "Planowany serwis VPN w sobote [ID:6424478]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 25,
+      "title": "Planowany serwis VPN w sobote [ID:6343304]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 26,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:9565328]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 27,
+      "title": "Planowany serwis VPN w sobote [ID:2277271]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 28,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:0567135]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 29,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:3243464]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 30,
+      "title": "Niestandardowe logowanie: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 31,
+      "title": "Alert bezpieczenstwa: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@stearn-community.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 32,
+      "title": "Bilet i agenda wydarzenia [ID:6435431]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 33,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:9082160]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 34,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:2436243]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 35,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:4150347]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 36,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:1571615]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 37,
+      "title": "Blokada uslugi: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@steĐ°m-support.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 38,
+      "title": "Komunikat o przegladzie instalacji [ID:3289455]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 39,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:8525450]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 40,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:7386827]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 41,
+      "title": "Pilne potwierdzenie: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 42,
+      "title": "Wymagane dzialanie: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 43,
+      "title": "Niestandardowe logowanie: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 44,
+      "title": "Alert bezpieczenstwa: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@gmaŃ–l-alert.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 45,
+      "title": "Wymagane dzialanie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 46,
+      "title": "Bilet i agenda wydarzenia [ID:3050108]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 47,
+      "title": "Niestandardowe logowanie: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@d0cusign-secure-file.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 48,
+      "title": "Niestandardowe logowanie: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@paypaI-verification.net>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 49,
+      "title": "Bilet i agenda wydarzenia [ID:3134242]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 50,
+      "title": "Wymagane dzialanie: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 51,
+      "title": "Potwierdzenie wysylki zamowienia [ID:1975875]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 52,
+      "title": "Alert bezpieczenstwa: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@gmaiI-security.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 53,
+      "title": "Pilne potwierdzenie: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@steĐ°m-support.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 54,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:5754120]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 55,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:4480089]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 56,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:6653260]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 57,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:2361288]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 58,
+      "title": "Komunikat o przegladzie instalacji [ID:4877796]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 59,
+      "title": "Bilet i agenda wydarzenia [ID:8356878]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 60,
+      "title": "Wymagane dzialanie: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 61,
+      "title": "Blokada uslugi: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@microsoft-securebilling.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 62,
+      "title": "Pilne potwierdzenie: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 63,
+      "title": "Alert bezpieczenstwa: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@microsoft-securebilling.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 64,
+      "title": "Nieudana platnosc: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 65,
+      "title": "Aktualizacja danych: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@d0cusign-secure-file.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 66,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:3420184]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 67,
+      "title": "Nieudana platnosc: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@d0cusign-secure-file.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 68,
+      "title": "Wymagane dzialanie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 69,
+      "title": "Blokada uslugi: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@paypaI-verification.net>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 70,
+      "title": "Wymagane dzialanie: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@stearn-community.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 71,
+      "title": "Pilne potwierdzenie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@xn--pple-43d-id.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 72,
+      "title": "Aktualizacja danych: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@googIe-account-alert.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 73,
+      "title": "Blokada uslugi: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 74,
+      "title": "Nieudana platnosc: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@stearn-community.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 75,
+      "title": "Nieudana platnosc: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 76,
+      "title": "Planowany serwis VPN w sobote [ID:3301173]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 77,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:9623644]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 78,
+      "title": "Aktualizacja danych: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 79,
+      "title": "Aktualizacja danych: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@steĐ°m-support.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 80,
+      "title": "Wymagane dzialanie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 81,
+      "title": "Pilne potwierdzenie: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@micros0ft-login.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 82,
+      "title": "Blokada uslugi: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 83,
+      "title": "Bilet i agenda wydarzenia [ID:0803850]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 84,
+      "title": "Pilne potwierdzenie: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 85,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:9591619]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 86,
+      "title": "Nieudana platnosc: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 87,
+      "title": "Niestandardowe logowanie: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@gmaiI-security.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 88,
+      "title": "Planowany serwis VPN w sobote [ID:8884673]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 89,
+      "title": "Potwierdzenie wysylki zamowienia [ID:9849547]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 90,
+      "title": "Alert bezpieczenstwa: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@arnazon-support.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 91,
+      "title": "Aktualizacja danych: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 92,
+      "title": "Niestandardowe logowanie: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@stearn-community.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 93,
+      "title": "Alert bezpieczenstwa: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@xn--pple-43d-id.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 94,
+      "title": "Blokada uslugi: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 95,
+      "title": "Pilne potwierdzenie: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 96,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:5083225]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 97,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:5511434]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 98,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:3470638]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 99,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:7444316]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 100,
+      "title": "Potwierdzenie wysylki zamowienia [ID:5938649]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 101,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:1443358]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 102,
+      "title": "Niestandardowe logowanie: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 103,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:6852055]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 104,
+      "title": "Alert bezpieczenstwa: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 105,
+      "title": "Niestandardowe logowanie: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 106,
+      "title": "Nieudana platnosc: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@gmaiI-security.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 107,
+      "title": "Weryfikacja konta: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 108,
+      "title": "Aktualizacja danych: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@paypaI-verification.net>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 109,
+      "title": "Niestandardowe logowanie: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 110,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:0775201]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 111,
+      "title": "Alert bezpieczenstwa: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@xn--pple-43d-id.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 112,
+      "title": "Niestandardowe logowanie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 113,
+      "title": "Alert bezpieczenstwa: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@steĐ°m-support.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 114,
+      "title": "Komunikat o przegladzie instalacji [ID:3418197]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 115,
+      "title": "Wymagane dzialanie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 116,
+      "title": "Bilet i agenda wydarzenia [ID:0124495]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 117,
+      "title": "Nieudana platnosc: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 118,
+      "title": "Blokada uslugi: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 119,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:0961020]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 120,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:9801902]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 121,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:2269108]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 122,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:0332986]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 123,
+      "title": "Niestandardowe logowanie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@googIe-account-alert.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 124,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:8956520]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 125,
+      "title": "Wymagane dzialanie: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 126,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:5622625]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 127,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:9259111]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 128,
+      "title": "Bilet i agenda wydarzenia [ID:2978284]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 129,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:0036940]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 130,
+      "title": "Weryfikacja konta: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@xn--pple-43d-id.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 131,
+      "title": "Aktualizacja danych: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 132,
+      "title": "Alert bezpieczenstwa: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 133,
+      "title": "Weryfikacja konta: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 134,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:8892144]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 135,
+      "title": "Pilne potwierdzenie: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 136,
+      "title": "Weryfikacja konta: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 137,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:6691760]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 138,
+      "title": "Niestandardowe logowanie: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 139,
+      "title": "Planowany serwis VPN w sobote [ID:6493542]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 140,
+      "title": "Pilne potwierdzenie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@googIe-account-alert.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 141,
+      "title": "Niestandardowe logowanie: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@paypaI-verification.net>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 142,
+      "title": "Wymagane dzialanie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 143,
+      "title": "Planowany serwis VPN w sobote [ID:3179112]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 144,
+      "title": "Alert bezpieczenstwa: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@micros0ft-login.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 145,
+      "title": "Pilne potwierdzenie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 146,
+      "title": "Komunikat o przegladzie instalacji [ID:6949061]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 147,
+      "title": "Aktualizacja danych: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@stearn-community.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 148,
+      "title": "Alert bezpieczenstwa: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@googIe-account-alert.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 149,
+      "title": "Pilne potwierdzenie: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 150,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:4401218]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 151,
+      "title": "Aktualizacja danych: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 152,
+      "title": "Pilne potwierdzenie: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@paypaI-verification.net>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 153,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:5613945]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 154,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:0392118]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 155,
+      "title": "Bilet i agenda wydarzenia [ID:5252278]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 156,
+      "title": "Weryfikacja konta: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@googIe-account-alert.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 157,
+      "title": "Potwierdzenie wysylki zamowienia [ID:7606614]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 158,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:9642838]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 159,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:2046422]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 160,
+      "title": "Alert bezpieczenstwa: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@d0cusign-secure-file.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 161,
+      "title": "Alert bezpieczenstwa: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 162,
+      "title": "Blokada uslugi: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@d0cusign-secure-file.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 163,
+      "title": "Wymagane dzialanie: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@gmaŃ–l-alert.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 164,
+      "title": "Alert bezpieczenstwa: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 165,
+      "title": "Nieudana platnosc: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@d0cusign-secure-file.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 166,
+      "title": "Weryfikacja konta: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@micros0ft-login.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 167,
+      "title": "Potwierdzenie wysylki zamowienia [ID:9308419]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 168,
+      "title": "Weryfikacja konta: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@gmaiI-security.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 169,
+      "title": "Bilet i agenda wydarzenia [ID:5629826]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 170,
+      "title": "Wymagane dzialanie: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@microsoft-securebilling.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 171,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:8570939]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 172,
+      "title": "Weryfikacja konta: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@steĐ°m-support.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 173,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:7886390]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 174,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:7051359]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 175,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:8756820]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 176,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:1552936]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 177,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:0023181]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 178,
+      "title": "Nieudana platnosc: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 179,
+      "title": "Pilne potwierdzenie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 180,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:0488260]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 181,
+      "title": "Aktualizacja danych: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 182,
+      "title": "Planowany serwis VPN w sobote [ID:1163692]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 183,
+      "title": "Bilet i agenda wydarzenia [ID:2035376]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 184,
+      "title": "Niestandardowe logowanie: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 185,
+      "title": "Potwierdzenie wysylki zamowienia [ID:5934504]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 186,
+      "title": "Niestandardowe logowanie: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@arnazon-support.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 187,
+      "title": "Weryfikacja konta: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 188,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:2340701]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 189,
+      "title": "Weryfikacja konta: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@microsoft-securebilling.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 190,
+      "title": "Aktualizacja danych: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 191,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:2921030]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 192,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:0565115]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 193,
+      "title": "Komunikat o przegladzie instalacji [ID:8012404]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 194,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:0081529]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 195,
+      "title": "Nieudana platnosc: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 196,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:5154939]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 197,
+      "title": "Bilet i agenda wydarzenia [ID:8120977]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 198,
+      "title": "Komunikat o przegladzie instalacji [ID:6734078]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 199,
+      "title": "Aktualizacja danych: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 200,
+      "title": "Planowany serwis VPN w sobote [ID:4629830]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 201,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:5812125]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 202,
+      "title": "Pilne potwierdzenie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@xn--pple-43d-id.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 203,
+      "title": "Blokada uslugi: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@xn--pple-43d-id.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 204,
+      "title": "Potwierdzenie wysylki zamowienia [ID:0617114]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 205,
+      "title": "Wymagane dzialanie: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@arnazon-support.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 206,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:2723364]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 207,
+      "title": "Komunikat o przegladzie instalacji [ID:4984944]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 208,
+      "title": "Pilne potwierdzenie: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 209,
+      "title": "Weryfikacja konta: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 210,
+      "title": "Komunikat o przegladzie instalacji [ID:4995272]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 211,
+      "title": "Weryfikacja konta: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@d0cusign-secure-file.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 212,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:8948338]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 213,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:4229676]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 214,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:5241824]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 215,
+      "title": "Niestandardowe logowanie: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@microsoft-securebilling.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 216,
+      "title": "Planowany serwis VPN w sobote [ID:6041219]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 217,
+      "title": "Nieudana platnosc: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@stearn-community.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 218,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:2182321]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 219,
+      "title": "Weryfikacja konta: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@micros0ft-login.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 220,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:0249412]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 221,
+      "title": "Wymagane dzialanie: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 222,
+      "title": "Weryfikacja konta: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@steĐ°m-support.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 223,
+      "title": "Aktualizacja danych: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 224,
+      "title": "Alert bezpieczenstwa: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@gmaiI-security.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 225,
+      "title": "Aktualizacja danych: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 226,
+      "title": "Bilet i agenda wydarzenia [ID:8831261]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 227,
+      "title": "Komunikat o przegladzie instalacji [ID:5300331]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 228,
+      "title": "Bilet i agenda wydarzenia [ID:6697680]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 229,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:2813134]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 230,
+      "title": "Aktualizacja danych: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 231,
+      "title": "Blokada uslugi: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 232,
+      "title": "Aktualizacja danych: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 233,
+      "title": "Alert bezpieczenstwa: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@gmaŃ–l-alert.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 234,
+      "title": "Pilne potwierdzenie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 235,
+      "title": "Nieudana platnosc: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@stearn-community.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 236,
+      "title": "Aktualizacja danych: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 237,
+      "title": "Wymagane dzialanie: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 238,
+      "title": "Weryfikacja konta: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@micros0ft-login.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 239,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:7602841]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 240,
+      "title": "Weryfikacja konta: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@steĐ°m-support.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 241,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:9145504]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 242,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:6674318]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 243,
+      "title": "Alert bezpieczenstwa: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@xn--pple-43d-id.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 244,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:7712898]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 245,
+      "title": "Wymagane dzialanie: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 246,
+      "title": "Potwierdzenie wysylki zamowienia [ID:3072202]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 247,
+      "title": "Weryfikacja konta: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 248,
+      "title": "Blokada uslugi: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 249,
+      "title": "Weryfikacja konta: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@arnazon-support.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 250,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:7273219]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 251,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:0080542]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 252,
+      "title": "Komunikat o przegladzie instalacji [ID:0564558]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 253,
+      "title": "Pilne potwierdzenie: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@micros0ft-login.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 254,
+      "title": "Weryfikacja konta: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 255,
+      "title": "Potwierdzenie wysylki zamowienia [ID:8282286]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 256,
+      "title": "Bilet i agenda wydarzenia [ID:1116512]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 257,
+      "title": "Aktualizacja danych: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@d0cusign-secure-file.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 258,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:9975029]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 259,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:9868591]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 260,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:4010084]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 261,
+      "title": "Nieudana platnosc: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 262,
+      "title": "Blokada uslugi: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@micros0ft-login.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 263,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:2945295]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 264,
+      "title": "Planowany serwis VPN w sobote [ID:1226208]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 265,
+      "title": "Wymagane dzialanie: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@googIe-account-alert.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 266,
+      "title": "Potwierdzenie wysylki zamowienia [ID:0629939]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 267,
+      "title": "Aktualizacja danych: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 268,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:2381088]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 269,
+      "title": "Alert bezpieczenstwa: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@steĐ°m-support.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 270,
+      "title": "Nieudana platnosc: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 271,
+      "title": "Blokada uslugi: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 272,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:4463395]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 273,
+      "title": "Niestandardowe logowanie: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 274,
+      "title": "Blokada uslugi: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 275,
+      "title": "Aktualizacja danych: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@paypaI-verification.net>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 276,
+      "title": "Niestandardowe logowanie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@gmaiI-security.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 277,
+      "title": "Bilet i agenda wydarzenia [ID:6134193]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 278,
+      "title": "Pilne potwierdzenie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 279,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:3286339]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 280,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:3576607]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 281,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:7243861]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 282,
+      "title": "Alert bezpieczenstwa: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 283,
+      "title": "Bilet i agenda wydarzenia [ID:8101039]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 284,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:0698992]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 285,
+      "title": "Pilne potwierdzenie: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 286,
+      "title": "Wymagane dzialanie: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 287,
+      "title": "Wymagane dzialanie: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@microsoft-securebilling.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 288,
+      "title": "Bilet i agenda wydarzenia [ID:1427182]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 289,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:6161442]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 290,
+      "title": "Niestandardowe logowanie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@gmaiI-security.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 291,
+      "title": "Planowany serwis VPN w sobote [ID:5010050]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 292,
+      "title": "Weryfikacja konta: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 293,
+      "title": "Aktualizacja danych: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 294,
+      "title": "Blokada uslugi: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@gmaŃ–l-alert.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 295,
+      "title": "Pilne potwierdzenie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 296,
+      "title": "Weryfikacja konta: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 297,
+      "title": "Planowany serwis VPN w sobote [ID:4978048]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 298,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:8376684]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 299,
+      "title": "Planowany serwis VPN w sobote [ID:1532371]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 300,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:0133654]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 301,
+      "title": "Bilet i agenda wydarzenia [ID:8189905]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 302,
+      "title": "Nieudana platnosc: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@steĐ°m-support.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 303,
+      "title": "Aktualizacja danych: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 304,
+      "title": "Komunikat o przegladzie instalacji [ID:3823275]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 305,
+      "title": "Bilet i agenda wydarzenia [ID:4349565]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 306,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:8460476]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 307,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:5160919]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 308,
+      "title": "Weryfikacja konta: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 309,
+      "title": "Komunikat o przegladzie instalacji [ID:6839416]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 310,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:9440924]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 311,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:0283037]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 312,
+      "title": "Nieudana platnosc: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 313,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:0320617]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 314,
+      "title": "Aktualizacja danych: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@paypaI-verification.net>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 315,
+      "title": "Blokada uslugi: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@gmaiI-security.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 316,
+      "title": "Aktualizacja danych: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@xn--pple-43d-id.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 317,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:0140158]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 318,
+      "title": "Aktualizacja danych: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@steĐ°m-support.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 319,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:5999194]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 320,
+      "title": "Niestandardowe logowanie: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@steĐ°m-support.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 321,
+      "title": "Planowany serwis VPN w sobote [ID:4828771]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 322,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:9451375]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 323,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:5111537]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 324,
+      "title": "Komunikat o przegladzie instalacji [ID:2239021]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 325,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:7162455]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 326,
+      "title": "Aktualizacja danych: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@googIe-account-alert.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 327,
+      "title": "Nieudana platnosc: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 328,
+      "title": "Potwierdzenie wysylki zamowienia [ID:3170483]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 329,
+      "title": "Bilet i agenda wydarzenia [ID:5487790]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 330,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:8541252]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 331,
+      "title": "Weryfikacja konta: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 332,
+      "title": "Komunikat o przegladzie instalacji [ID:4804190]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 333,
+      "title": "Pilne potwierdzenie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@xn--pple-43d-id.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 334,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:0568484]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 335,
+      "title": "Planowany serwis VPN w sobote [ID:8035725]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 336,
+      "title": "Bilet i agenda wydarzenia [ID:5315126]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 337,
+      "title": "Nieudana platnosc: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@arnazon-support.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 338,
+      "title": "Aktualizacja danych: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 339,
+      "title": "Potwierdzenie wysylki zamowienia [ID:2235268]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 340,
+      "title": "Alert bezpieczenstwa: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@stearn-community.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 341,
+      "title": "Weryfikacja konta: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@xn--pple-43d-id.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 342,
+      "title": "Niestandardowe logowanie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 343,
+      "title": "Pilne potwierdzenie: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@stearn-community.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 344,
+      "title": "Planowany serwis VPN w sobote [ID:0081129]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 345,
+      "title": "Bilet i agenda wydarzenia [ID:8164204]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 346,
+      "title": "Pilne potwierdzenie: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@steĐ°m-support.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 347,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:9403396]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 348,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:5134133]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 349,
+      "title": "Aktualizacja danych: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 350,
+      "title": "Komunikat o przegladzie instalacji [ID:8979445]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 351,
+      "title": "Weryfikacja konta: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 352,
+      "title": "Nieudana platnosc: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@microsoft-securebilling.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 353,
+      "title": "Weryfikacja konta: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@googIe-account-alert.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 354,
+      "title": "Wymagane dzialanie: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@paypaI-verification.net>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 355,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:3589542]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 356,
+      "title": "Bilet i agenda wydarzenia [ID:8325617]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 357,
+      "title": "Nieudana platnosc: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 358,
+      "title": "Aktualizacja danych: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@gmaŃ–l-alert.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 359,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:8998822]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 360,
+      "title": "Bilet i agenda wydarzenia [ID:6333835]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 361,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:0891562]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 362,
+      "title": "Alert bezpieczenstwa: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 363,
+      "title": "Aktualizacja danych: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@microsoft-securebilling.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 364,
+      "title": "Aktualizacja danych: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@paypaI-verification.net>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 365,
+      "title": "Potwierdzenie wysylki zamowienia [ID:3706051]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 366,
+      "title": "Planowany serwis VPN w sobote [ID:5932413]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 367,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:2146836]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 368,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:7827781]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 369,
+      "title": "Potwierdzenie wysylki zamowienia [ID:4622568]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 370,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:2974281]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 371,
+      "title": "Aktualizacja danych: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 372,
+      "title": "Wymagane dzialanie: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 373,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:1693714]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 374,
+      "title": "Alert bezpieczenstwa: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 375,
+      "title": "Niestandardowe logowanie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@arnazon-support.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 376,
+      "title": "Blokada uslugi: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 377,
+      "title": "Wymagane dzialanie: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@gmaiI-security.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 378,
+      "title": "Aktualizacja danych: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 379,
+      "title": "Wymagane dzialanie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 380,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:5329976]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 381,
+      "title": "Alert bezpieczenstwa: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 382,
+      "title": "Bilet i agenda wydarzenia [ID:3053078]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 383,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:9484140]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 384,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:1513476]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 385,
+      "title": "Nieudana platnosc: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 386,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:2876797]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 387,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:1367613]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 388,
+      "title": "Wymagane dzialanie: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 389,
+      "title": "Planowany serwis VPN w sobote [ID:3540748]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 390,
+      "title": "Weryfikacja konta: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 391,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:2141962]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 392,
+      "title": "Blokada uslugi: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@micros0ft-login.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 393,
+      "title": "Pilne potwierdzenie: Microsoft 365 - odnowienie subskrypcji",
+      "sender": "Microsoft 365 Security <no-reply@googIe-account-alert.com>",
+      "category": "invoice",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 394,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:3229022]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 395,
+      "title": "Blokada uslugi: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 396,
+      "title": "Nieudana platnosc: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@stearn-community.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 397,
+      "title": "Bilet i agenda wydarzenia [ID:3891399]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 398,
+      "title": "Blokada uslugi: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 399,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:2848585]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 400,
+      "title": "Komunikat o przegladzie instalacji [ID:6455285]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 401,
+      "title": "Bilet i agenda wydarzenia [ID:3064167]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 402,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:7785824]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 403,
+      "title": "Potwierdzenie wysylki zamowienia [ID:7782070]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 404,
+      "title": "Niestandardowe logowanie: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 405,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:0915856]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 406,
+      "title": "Nieudana platnosc: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 407,
+      "title": "Planowany serwis VPN w sobote [ID:9329014]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 408,
+      "title": "Planowany serwis VPN w sobote [ID:1569041]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 409,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:7507267]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 410,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:9955076]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 411,
+      "title": "Pilne potwierdzenie: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@gmaŃ–l-alert.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 412,
+      "title": "Niestandardowe logowanie: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@xn--pple-43d-id.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 413,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:5106777]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 414,
+      "title": "Nieudana platnosc: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 415,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:1734452]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 416,
+      "title": "Aktualizacja danych: Dzial Kadr - potwierdzenie danych kadrowych",
+      "sender": "Dzial Kadr Security <no-reply@hr-company-verify.com>",
+      "category": "hr",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 417,
+      "title": "Niestandardowe logowanie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@googIe-account-alert.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 418,
+      "title": "Komunikat o przegladzie instalacji [ID:0684777]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 419,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:5637489]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 420,
+      "title": "Alert bezpieczenstwa: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@gmaŃ–l-alert.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 421,
+      "title": "Aktualizacja danych: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 422,
+      "title": "Weryfikacja konta: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 423,
+      "title": "Pilne potwierdzenie: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 424,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:0549115]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 425,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:2136453]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 426,
+      "title": "Wymagane dzialanie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 427,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:0559669]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 428,
+      "title": "Weryfikacja konta: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 429,
+      "title": "Potwierdzenie wysylki zamowienia [ID:8984107]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 430,
+      "title": "Komunikat o przegladzie instalacji [ID:9980084]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 431,
+      "title": "Blokada uslugi: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@stearn-community.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 432,
+      "title": "Planowany serwis VPN w sobote [ID:4079207]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 433,
+      "title": "Nieudana platnosc: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 434,
+      "title": "Alert bezpieczenstwa: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 435,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:2357877]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 436,
+      "title": "Wymagane dzialanie: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@faceb00k-security-check.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 437,
+      "title": "Pilne potwierdzenie: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 438,
+      "title": "Nieudana platnosc: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@binance-wallet-secure.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 439,
+      "title": "Wymagane dzialanie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@micros0ft-login.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 440,
+      "title": "Niestandardowe logowanie: e-Urzad Skarbowy - zwrot podatku",
+      "sender": "e-Urzad Skarbowy Security <no-reply@podatki-refund-pl.com>",
+      "category": "tax",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 441,
+      "title": "Wymagane dzialanie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 442,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:0189145]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 443,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:9603782]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 444,
+      "title": "Pilne potwierdzenie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@googIe-account-alert.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 445,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:0039966]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 446,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:6408508]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 447,
+      "title": "Planowany serwis VPN w sobote [ID:3996953]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 448,
+      "title": "Pilne potwierdzenie: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 449,
+      "title": "Bilet i agenda wydarzenia [ID:7261949]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 450,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:3342685]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 451,
+      "title": "Planowany serwis VPN w sobote [ID:2921514]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 452,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:1771056]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 453,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:0673530]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 454,
+      "title": "Nieudana platnosc: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@steĐ°m-support.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 455,
+      "title": "Alert bezpieczenstwa: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@xn--pple-43d-id.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 456,
+      "title": "Potwierdzenie wysylki zamowienia [ID:8650501]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 457,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:3716837]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 458,
+      "title": "Weryfikacja konta: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 459,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:5283735]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 460,
+      "title": "Planowany serwis VPN w sobote [ID:6386968]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 461,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:3985812]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 462,
+      "title": "Komunikat o przegladzie instalacji [ID:8953821]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 463,
+      "title": "Przypomnienie o wizycie kontrolnej [ID:1927738]",
+      "sender": "Przychodnia NovaMed <rejestracja@novamed.pl>",
+      "category": "health",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 464,
+      "title": "Komunikat o przegladzie instalacji [ID:5833696]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 465,
+      "title": "Aktualizacja danych: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@grnail-security.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 466,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:9445557]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 467,
+      "title": "Wymagane dzialanie: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 468,
+      "title": "Nieudana platnosc: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@paypaI-verification.net>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 469,
+      "title": "Harmonogram zajec na kolejny zjazd [ID:8154517]",
+      "sender": "Biuro Studiow Podyplomowych <studia@uczelnia.edu.pl>",
+      "category": "education",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 470,
+      "title": "Aktualizacja danych: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 471,
+      "title": "Wymagane dzialanie: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 472,
+      "title": "Przypomnienie o podrozy i numerze peronu [ID:6635720]",
+      "sender": "PKP Intercity <powiadomienia@intercity.pl>",
+      "category": "travel",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 473,
+      "title": "Blokada uslugi: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@gmaiI-security.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 474,
+      "title": "Niestandardowe logowanie: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 475,
+      "title": "Aktualizacja danych: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@gmaŃ–l-alert.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 476,
+      "title": "Aktualizacja danych: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 477,
+      "title": "Planowany serwis VPN w sobote [ID:2120813]",
+      "sender": "IT Support <it-support@firma-tech.pl>",
+      "category": "work",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 478,
+      "title": "Bilet i agenda wydarzenia [ID:4261653]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 479,
+      "title": "Pilne potwierdzenie: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 480,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:3751479]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 481,
+      "title": "Podsumowanie sprintu i plan na kolejny tydzien [ID:1186253]",
+      "sender": "Zespol Projektowy <projekt@firma-tech.pl>",
+      "category": "meeting",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 482,
+      "title": "Weryfikacja konta: Facebook Security - potwierdzenie tozsamosci",
+      "sender": "Facebook Security Security <no-reply@xn--pple-43d-id.com>",
+      "category": "social",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 483,
+      "title": "Nieudana platnosc: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 484,
+      "title": "Alert bezpieczenstwa: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 485,
+      "title": "Komunikat o przegladzie instalacji [ID:5611008]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 486,
+      "title": "Komunikat o przegladzie instalacji [ID:7647195]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 487,
+      "title": "Miesieczny newsletter o cyberbezpieczenstwie [ID:4695522]",
+      "sender": "Fundacja Tech4All <newsletter@tech4all.org>",
+      "category": "newsletter",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 488,
+      "title": "Komunikat o przegladzie instalacji [ID:1163979]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 489,
+      "title": "Niestandardowe logowanie: Binance - zabezpieczenie wyplat",
+      "sender": "Binance Security <no-reply@d0cusign-secure-file.com>",
+      "category": "crypto",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 490,
+      "title": "Potwierdzenie wysylki zamowienia [ID:8259265]",
+      "sender": "Sklep FotoMax <zamowienia@fotomax.pl>",
+      "category": "shopping",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 491,
+      "title": "Aktualizacja danych: mBank - potwierdzenie nowego odbiorcy",
+      "sender": "mBank Security <no-reply@secure-mbank-pl.com>",
+      "category": "banking",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 492,
+      "title": "Alert bezpieczenstwa: InPost - doplaty 1,99 PLN do przesylki",
+      "sender": "InPost Security <no-reply@in-post-track-pl.com>",
+      "category": "delivery",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 493,
+      "title": "Komunikat o przegladzie instalacji [ID:4553873]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 494,
+      "title": "Bilet i agenda wydarzenia [ID:8866614]",
+      "sender": "Konferencja DataSummit <kontakt@datasummit.eu>",
+      "category": "event",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    },
+    {
+      "id": 495,
+      "title": "Wymagane dzialanie: Steam - potwierdzenie transakcji na Market",
+      "sender": "Steam Security <no-reply@stearn-community.com>",
+      "category": "gaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 496,
+      "title": "Nieudana platnosc: Google Workspace - weryfikacja aktywnosci logowania",
+      "sender": "Google Workspace Security <no-reply@micros0ft-login.com>",
+      "category": "account",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 497,
+      "title": "Komunikat o przegladzie instalacji [ID:9524907]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 498,
+      "title": "Aktualizacja danych: Netflix - aktualizacja karty platniczej",
+      "sender": "Netflix Security <no-reply@netfliix-billing.com>",
+      "category": "streaming",
+      "ground_truth": "phishing",
+      "prediction": "phishing",
+      "is_correct": true
+    },
+    {
+      "id": 499,
+      "title": "Faktura za uslugi ksiegowe - marzec [ID:2757512]",
+      "sender": "Biuro Rachunkowe Delta <kontakt@delta-rachunki.pl>",
+      "category": "invoice",
+      "ground_truth": "legit",
+      "prediction": "phishing",
+      "is_correct": false
+    },
+    {
+      "id": 500,
+      "title": "Komunikat o przegladzie instalacji [ID:3354347]",
+      "sender": "Wspolnota Mieszkaniowa Zielona 12 <zarzad@zielona12.pl>",
+      "category": "community",
+      "ground_truth": "legit",
+      "prediction": "legit",
+      "is_correct": true
+    }
+  ]
+}
