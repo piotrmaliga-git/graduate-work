@@ -21,9 +21,9 @@ describe('AnalyzerComponent', () => {
   });
 
   it('should expose expected models list', () => {
-    expect(component.models.length).toBe(7);
+    expect(component.models.length).toBe(5);
     expect(component.models.map((model) => model.id)).toContain('gpt-4.1');
-    expect(component.models.map((model) => model.id)).toContain('bielik2-4bit');
+    expect(component.models.map((model) => model.id)).toContain('bielik-2-4bit');
   });
 
   it('should set internal error and not emit when email text is empty', () => {
