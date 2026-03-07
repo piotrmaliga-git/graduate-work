@@ -33,7 +33,11 @@ def classify_with_gemini(email_text: str, model: str) -> tuple[str, str]:
         client = _get_gemini_client()
         response = client.models.generate_content(
             model=model,
-            contents=f"{SYSTEM_PROMPT}\n\nEmail:\n{email_text}"
+            contents=f"{SYSTEM_PROMPT}\n\nEmail:\n{email_text}",
+            config={
+                "temperature": 0.0,
+                "max_output_tokens": 500
+            }
         )
         
         content = response.text.strip()
