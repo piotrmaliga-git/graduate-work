@@ -47,6 +47,86 @@ describe('ResultsComponent', () => {
     expect(compiled.textContent).toContain('Suspicious URL domain');
   });
 
+  it('should render formatted frontend response time when frontend_time_ms is present', () => {
+    const result: AnalysisResult = {
+      model: 'gpt-4.1',
+      prediction: 'phishing',
+      reason: 'Suspicious URL domain',
+      timestamp: '2026-03-03T11:00:00Z',
+      sender: 'attacker@example.com',
+      title: 'Urgent Account Verification',
+      response_time_ms: 1234,
+      frontend_time_ms: 250,
+    };
+
+    fixture.componentRef.setInput('result', result);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain('Total Response Time');
+    expect(compiled.textContent).toContain('250ms');
+  });
+
+  it('should not render frontend response time row when frontend_time_ms is missing', () => {
+    const result: AnalysisResult = {
+      model: 'gpt-4.1',
+      prediction: 'legit',
+      reason: 'Normal message',
+      timestamp: '2026-03-03T11:00:00Z',
+      sender: 'sender@example.com',
+      title: 'Newsletter',
+      response_time_ms: 567,
+    };
+
+    fixture.componentRef.setInput('result', result);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).not.toContain('Total Response Time');
+  });
+
+  it('should apply phishing style class for phishing prediction', () => {
+    const result: AnalysisResult = {
+      model: 'gpt-4.1',
+      prediction: 'phishing',
+      reason: 'Suspicious URL domain',
+      timestamp: '2026-03-03T11:00:00Z',
+      sender: 'attacker@example.com',
+      title: 'Urgent Account Verification',
+      response_time_ms: 1234,
+    };
+
+    fixture.componentRef.setInput('result', result);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const predictionBadge = compiled.querySelector('.font-bold.rounded') as HTMLElement;
+
+    expect(predictionBadge.className).toContain('text-danger');
+    expect(predictionBadge.className).toContain('bg-red-100');
+  });
+
+  it('should apply legit style class for legit prediction', () => {
+    const result: AnalysisResult = {
+      model: 'gpt-4.1',
+      prediction: 'legit',
+      reason: 'Looks fine',
+      timestamp: '2026-03-03T11:00:00Z',
+      sender: 'sender@example.com',
+      title: 'Newsletter',
+      response_time_ms: 500,
+    };
+
+    fixture.componentRef.setInput('result', result);
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    const predictionBadge = compiled.querySelector('.font-bold.rounded') as HTMLElement;
+
+    expect(predictionBadge.className).toContain('text-success');
+    expect(predictionBadge.className).toContain('bg-green-100');
+  });
+
   it('should render fallback reason when reason is empty', () => {
     const result: AnalysisResult = {
       model: 'gpt-4.1',
