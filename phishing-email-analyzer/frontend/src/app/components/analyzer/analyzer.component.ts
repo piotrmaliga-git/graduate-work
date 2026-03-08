@@ -32,6 +32,7 @@ export class AnalyzerComponent {
     { id: 'llama-cloud', name: 'Llama Cloud' },
     { id: 'bielik-2-4bit', name: 'Bielik 2 (4-bit)' },
   ];
+  
   onAnalyze() {
     if (!this.emailText().trim()) {
       this.internalError.set('Please enter email text');
