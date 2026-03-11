@@ -10,7 +10,6 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-    // enable fetch-based HttpClient for SSR performance
     provideHttpClient(withFetch()),
   ],
 };

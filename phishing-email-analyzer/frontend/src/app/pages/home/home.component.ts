@@ -53,7 +53,6 @@ export class HomePageComponent {
     this.error.set('');
     this.result.set(null);
 
-    // Start timing
     const startTime = performance.now();
 
     try {
@@ -66,11 +65,9 @@ export class HomePageComponent {
         })
         .toPromise();
 
-      // Calculate frontend response time
       const endTime = performance.now();
       const frontendTimeMs = Math.round((endTime - startTime) * 100) / 100;
 
-      // Add frontend time to response
       if (response) {
         response.frontend_time_ms = frontendTimeMs;
       }
