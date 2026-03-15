@@ -6,8 +6,18 @@
   html,
   body {
     @apply h-full w-full m-0 p-0;
-    background: linear-gradient(180deg, #e0f2fe 0%, #f8fafc 45%, #f8fafc 100%);
-    transition: background 240ms ease;
+    background: linear-gradient(
+      165deg,
+      var(--p-primary-50) 0%,
+      var(--p-surface-0) 40%,
+      var(--p-content-background) 100%
+    );
+    color: var(--p-text-color);
+    transition:
+      background 240ms ease,
+      color 240ms ease,
+      border-color 240ms ease,
+      box-shadow 240ms ease;
   }
 
   * {
@@ -16,7 +26,12 @@
 }
 
 .app-dark body {
-  background: radial-gradient(circle at 20% 10%, #1f2937 0%, #0f172a 55%, #020617 100%);
+  background: radial-gradient(
+    circle at 15% 10%,
+    var(--p-primary-950) 0%,
+    var(--p-surface-900) 50%,
+    var(--p-content-background) 100%
+  );
 }
 
 @layer components {
@@ -30,7 +45,7 @@
 
   .theme-switcher {
     @apply flex items-center justify-end gap-3 mb-6;
-    color: #0f172a;
+    color: var(--p-text-color);
   }
 
   .theme-switcher span {
@@ -39,7 +54,7 @@
 
   .header-title-block {
     @apply text-center mb-6;
-    color: #0f172a;
+    color: var(--p-text-color);
   }
 
   .header-title-block h1 {
@@ -52,7 +67,7 @@
 
   .header-title-block p {
     @apply text-lg m-0;
-    color: #334155;
+    color: var(--p-text-muted-color);
   }
 
   .app-shell {
@@ -66,8 +81,10 @@
   .analyzer-card,
   .results-card,
   .info-card {
-    box-shadow: 0 14px 38px rgba(2, 132, 199, 0.08);
-    border: 1px solid rgba(148, 163, 184, 0.28);
+    box-shadow: var(--p-card-shadow);
+    border: 1px solid var(--p-content-border-color);
+    background: var(--p-content-background);
+    color: var(--p-content-color);
   }
 
   .analyzer-form {
@@ -88,7 +105,8 @@
   }
 
   .char-counter {
-    @apply text-xs text-slate-500;
+    @apply text-xs;
+    color: var(--p-text-muted-color);
   }
 
   .action-row {
@@ -104,27 +122,34 @@
   }
 
   .result-row {
-    @apply flex justify-between items-center py-3 border-b border-slate-200;
+    @apply flex justify-between items-center py-3 border-b;
+    border-color: var(--p-content-border-color);
   }
 
   .result-row span {
-    @apply text-sm font-semibold text-slate-600;
+    @apply text-sm font-semibold;
+    color: var(--p-text-muted-color);
   }
 
   .result-row strong {
-    @apply text-sm text-slate-900 font-semibold;
+    @apply text-sm font-semibold;
+    color: var(--p-text-color);
   }
 
   .reason-block {
-    @apply py-4 border-b border-slate-200;
+    @apply py-4 border-b;
+    border-color: var(--p-content-border-color);
   }
 
   .reason-block > span {
-    @apply block mb-2 text-sm font-semibold text-slate-600;
+    @apply block mb-2 text-sm font-semibold;
+    color: var(--p-text-muted-color);
   }
 
   .reason-content {
-    @apply rounded-md bg-slate-50 p-4 text-sm leading-6 text-slate-800;
+    @apply rounded-md p-4 text-sm leading-6;
+    background: var(--p-highlight-background);
+    color: var(--p-text-color);
   }
 
   .model-list {
@@ -132,7 +157,9 @@
   }
 
   .model-list li {
-    @apply py-3 border-b border-slate-200 text-sm text-slate-700 leading-6;
+    @apply py-3 border-b text-sm leading-6;
+    border-color: var(--p-content-border-color);
+    color: var(--p-text-muted-color);
   }
 
   .model-list li:last-child {
@@ -140,47 +167,8 @@
   }
 
   .model-list strong {
-    @apply text-sky-700;
+    color: var(--p-primary-color);
   }
-}
-
-.app-dark .theme-switcher,
-.app-dark .header-title-block {
-  color: #e2e8f0;
-}
-
-.app-dark .header-title-block p {
-  color: #94a3b8;
-}
-
-.app-dark .analyzer-card,
-.app-dark .results-card,
-.app-dark .info-card {
-  box-shadow: 0 18px 42px rgba(2, 6, 23, 0.55);
-  border: 1px solid rgba(100, 116, 139, 0.45);
-}
-
-.app-dark .char-counter,
-.app-dark .result-row span,
-.app-dark .reason-block > span,
-.app-dark .model-list li {
-  color: #cbd5e1;
-}
-
-.app-dark .result-row strong,
-.app-dark .reason-content,
-.app-dark .model-list strong {
-  color: #f8fafc;
-}
-
-.app-dark .reason-content {
-  background: #0f172a;
-}
-
-.app-dark .result-row,
-.app-dark .reason-block,
-.app-dark .model-list li {
-  border-color: rgba(100, 116, 139, 0.4);
 }
 
 @media (min-width: 768px) {
