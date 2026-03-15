@@ -80,7 +80,7 @@ describe('AnalyzerComponent', () => {
   });
 
   it('should render external error message when error input is provided', () => {
-    fixture.componentRef.setInput('error', 'Backend unavailable');
+    fixture.componentRef.setInput('externalError', 'Backend unavailable');
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
@@ -184,7 +184,7 @@ describe('AnalyzerComponent', () => {
   });
 
   it('should not render external error block when error input is empty', () => {
-    fixture.componentRef.setInput('error', '');
+    fixture.componentRef.setInput('externalError', '');
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;

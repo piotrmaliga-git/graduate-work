@@ -1,6 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { FormatReasonPipe } from './format-reason.pipe';
 
+function getHtmlString(safeHtml: any): string {
+  if (typeof safeHtml === 'string') {
+    return safeHtml;
+  }
+
+  return safeHtml.changingThisBreaksApplicationSecurity || safeHtml.toString();
+}
+
 describe('FormatReasonPipe', () => {
   let pipe: FormatReasonPipe;
 
@@ -178,17 +186,4 @@ All these factors indicate phishing.`;
       expect(result).toBeDefined();
     });
   });
-
-  /**
-   * Helper function to extract HTML string from SafeHtml for testing purposes
-   */
-  function getHtmlString(safeHtml: any): string {
-    // SafeHtml wraps the actual HTML string
-    // We need to access the internal property for testing
-    if (typeof safeHtml === 'string') {
-      return safeHtml;
-    }
-    // For SafeHtml objects, we need to get the changingThisBreaksApplicationSecurity property
-    return safeHtml.changingThisBreaksApplicationSecurity || safeHtml.toString();
-  }
 });
