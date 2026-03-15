@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AnalyzerComponent } from '../../components/analyzer/analyzer.component';
-import { AiModelId } from '../../models/ai-model';
+import { AiModelId } from '../../utils/constants/constans';
 
 describe('AnalyzerComponent', () => {
   let fixture: ComponentFixture<AnalyzerComponent>;

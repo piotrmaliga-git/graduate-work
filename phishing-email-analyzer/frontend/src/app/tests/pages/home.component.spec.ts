@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { HomePageComponent } from '../../pages/home/home.component';
 import { ApiService } from '../../services/api.service';
 import { AnalyzerComponent } from '../../components/analyzer/analyzer.component';
-import { AiModelId } from '../../models/ai-model';
+import { AiModelId } from '../../utils/constants/constans';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
