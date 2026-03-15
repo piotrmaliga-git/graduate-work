@@ -6,9 +6,111 @@
   html,
   body {
     @apply h-full w-full m-0 p-0;
+    background: linear-gradient(180deg, #e0f2fe 0%, #f8fafc 45%, #f8fafc 100%);
   }
 
   * {
     @apply font-sans;
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen flex flex-col;
+  }
+
+  .app-content {
+    @apply w-full max-w-6xl mx-auto px-5 pb-10 flex-1;
+  }
+
+  .analyzer-card,
+  .results-card,
+  .info-card {
+    box-shadow: 0 14px 38px rgba(2, 132, 199, 0.08);
+    border: 1px solid rgba(148, 163, 184, 0.28);
+  }
+
+  .analyzer-form {
+    @apply flex flex-col gap-5;
+  }
+
+  .field {
+    @apply flex flex-col gap-2;
+  }
+
+  .field label {
+    @apply text-sm font-semibold text-slate-700;
+  }
+
+  .field input,
+  .field textarea {
+    width: 100%;
+  }
+
+  .char-counter {
+    @apply text-xs text-slate-500;
+  }
+
+  .action-row {
+    @apply flex flex-col gap-3;
+  }
+
+  .action-row button {
+    width: 100%;
+  }
+
+  .results-wrapper {
+    @apply mt-8 mb-8;
+  }
+
+  .result-row {
+    @apply flex justify-between items-center py-3 border-b border-slate-200;
+  }
+
+  .result-row span {
+    @apply text-sm font-semibold text-slate-600;
+  }
+
+  .result-row strong {
+    @apply text-sm text-slate-900 font-semibold;
+  }
+
+  .reason-block {
+    @apply py-4 border-b border-slate-200;
+  }
+
+  .reason-block > span {
+    @apply block mb-2 text-sm font-semibold text-slate-600;
+  }
+
+  .reason-content {
+    @apply rounded-md bg-slate-50 p-4 text-sm leading-6 text-slate-800;
+  }
+
+  .model-list {
+    @apply list-none m-0 p-0;
+  }
+
+  .model-list li {
+    @apply py-3 border-b border-slate-200 text-sm text-slate-700 leading-6;
+  }
+
+  .model-list li:last-child {
+    @apply border-b-0;
+  }
+
+  .model-list strong {
+    @apply text-sky-700;
+  }
+}
+
+@media (min-width: 768px) {
+  .action-row {
+    @apply flex-row;
+  }
+
+  .action-row button {
+    width: auto;
+    flex: 1;
   }
 }
