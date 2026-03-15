@@ -7,7 +7,8 @@ import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
 import { MessageModule } from 'primeng/message';
 import { CardModule } from 'primeng/card';
-import { AI_MODEL_OPTIONS, AiModelId } from '../../models/ai-model';
+import { AI_MODEL_OPTIONS, AiModelId } from '../../utils/constants/constans';
+import { analyzerTranslations } from '../../utils/translations/translations';
 
 @Component({
   selector: 'analyzer',
@@ -42,7 +43,7 @@ export class AnalyzerComponent {
 
   readonly models = AI_MODEL_OPTIONS;
 
-  readonly errorEmptyEmail = $localize`:analyzer|Validation message when email body is empty@@analyzer.errorEmptyEmail:Please enter email text`;
+  readonly errorEmptyEmail = analyzerTranslations['errorEmptyEmail'];
 
   onAnalyze() {
     if (!this.emailText().trim()) {
