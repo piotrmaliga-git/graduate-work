@@ -1,13 +1,25 @@
-<header class="w-full">
-  <div class="w-full max-w-6xl mx-auto px-5">
-    <div class="text-center mb-10 mt-8 text-gray-900">
-      <h1 class="text-5xl mb-2 font-bold">
-        <img src="/search.png" alt="Search icon" class="w-10 h-10 inline-block align-middle mr-2" />
-        Phishing Email Analyzer
+<header class="app-header">
+  <div class="app-header-inner">
+    <div class="theme-switcher">
+      <button
+        data-testid="theme-toggle"
+        pButton
+        type="button"
+        text
+        rounded
+        [icon]="theme.isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+        [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+        [attr.title]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+        (click)="toggleTheme()"
+      ></button>
+    </div>
+
+    <div class="header-title-block">
+      <h1>
+        <img src="/search.png" alt="Search icon" />
+        <span>Phishing Email Analyzer</span>
       </h1>
-      <p class="text-lg text-gray-600 m-0">
-        Paste an email below and select an AI model to analyze phishing risk
-      </p>
+      <p>Paste an email below and select an AI model to analyze phishing risk</p>
     </div>
   </div>
 </header>

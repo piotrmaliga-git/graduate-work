@@ -25,4 +25,14 @@ describe('HeaderComponent', () => {
       'Paste an email below and select an AI model to analyze phishing risk'
     );
   });
+
+  it('should render theme switch control', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const button = compiled.querySelector('[data-testid="theme-toggle"]') as HTMLButtonElement;
+
+    expect(button).toBeTruthy();
+    expect(button.className).toContain('p-button');
+    expect(button.getAttribute('aria-label')).toBe('Switch to dark mode');
+    expect(button.querySelector('.pi-moon')).toBeTruthy();
+  });
 });
