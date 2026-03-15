@@ -1,17 +1,14 @@
 import { TestBed } from '@angular/core/testing';
-import { DomSanitizer } from '@angular/platform-browser';
 import { FormatReasonPipe } from './format-reason.pipe';
 
 describe('FormatReasonPipe', () => {
   let pipe: FormatReasonPipe;
-  let sanitizer: DomSanitizer;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [FormatReasonPipe],
     });
-    sanitizer = TestBed.inject(DomSanitizer);
-    pipe = new FormatReasonPipe(sanitizer);
+    pipe = TestBed.inject(FormatReasonPipe);
   });
 
   it('should create an instance', () => {
@@ -21,17 +18,17 @@ describe('FormatReasonPipe', () => {
   describe('null/undefined/empty values', () => {
     it('should return default message for null value', () => {
       const result = pipe.transform(null);
-      expect(result).toBe('Brak dodatkowego uzasadnienia.');
+      expect(result).toBe('No additional justification.');
     });
 
     it('should return default message for undefined value', () => {
       const result = pipe.transform(undefined);
-      expect(result).toBe('Brak dodatkowego uzasadnienia.');
+      expect(result).toBe('No additional justification.');
     });
 
     it('should return default message for empty string', () => {
       const result = pipe.transform('');
-      expect(result).toBe('Brak dodatkowego uzasadnienia.');
+      expect(result).toBe('No additional justification.');
     });
   });
 

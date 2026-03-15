@@ -35,4 +35,14 @@ describe('HeaderComponent', () => {
     expect(button.getAttribute('aria-label')).toBe('Switch to dark mode');
     expect(button.querySelector('.pi-moon')).toBeTruthy();
   });
+
+  it('should render language switch control', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const button = compiled.querySelector('[data-testid="language-toggle"]') as HTMLButtonElement;
+
+    expect(button).toBeTruthy();
+    expect(button.className).toContain('p-button');
+    expect(button.textContent?.trim()).toBe('PL');
+    expect(button.getAttribute('aria-label')).toBe('Switch to Polish');
+  });
 });

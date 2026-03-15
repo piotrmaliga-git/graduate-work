@@ -25,13 +25,11 @@ test.describe('Phishing analyzer e2e', () => {
   test('clear button resets form fields', async ({ page }) => {
     await page.goto('/');
 
-    await page.getByLabel('Select AI Model:').selectOption('gpt-4.1');
-    await page.getByLabel('Sender Email:').fill('sender@example.com');
+    await page.locator('[data-testid="sender-input"]').fill('sender@example.com');
     await setEmailText(page, 'Suspicious email body for testing clear action.');
 
     await page.getByRole('button', { name: /Clear/i }).click();
 
-    await expect(page.locator('#model-select')).toHaveValue('gpt-4.1');
     await expect(page.locator('#sender-input')).toHaveValue('');
     await expect(page.locator('#email-input')).toHaveValue('');
     await expect(page.getByRole('button', { name: /Analyze/i })).toBeDisabled();
@@ -48,24 +46,30 @@ test.describe('Phishing analyzer e2e', () => {
           prediction: 'phishing',
           reason: 'Contains urgent credential reset request',
           timestamp: '2026-03-04T10:00:00Z',
+          response_time_ms: 321,
         }),
       });
     });
 
     await page.goto('/');
 
-    await page.getByLabel('Select AI Model:').selectOption('gpt-4.1');
-    await page.getByLabel('Sender Email:').fill('attacker@example.com');
+    await page.locator('[data-testid="sender-input"]').fill('attacker@example.com');
     await setEmailText(page, 'Urgent: click this link now and re-enter your company password.');
 
     await page.getByRole('button', { name: /Analyze/i }).click();
 
-    await expect(page.getByRole('heading', { name: 'Analysis Result' })).toBeVisible();
+    await expect(page.getByText('Analysis Result')).toBeVisible();
     await expect(
-      page.locator("xpath=//span[normalize-space()='Model:']/following-sibling::span[1]")
+      page
+        .locator('.result-row')
+        .filter({ hasText: /^Model/ })
+        .locator('strong')
     ).toHaveText('gpt-4.1');
     await expect(
-      page.locator("xpath=//span[normalize-space()='Sender:']/following-sibling::span[1]")
+      page
+        .locator('.result-row')
+        .filter({ hasText: /^Sender/ })
+        .locator('strong')
     ).toHaveText('attacker@example.com');
     await expect(page.getByText('PHISHING', { exact: true })).toBeVisible();
     await expect(page.getByText('Contains urgent credential reset request')).toBeVisible();
@@ -85,8 +89,8 @@ test.describe('Phishing analyzer e2e', () => {
     await setEmailText(page, 'Test email body');
     await page.getByRole('button', { name: /Analyze/i }).click();
 
-    await expect(page.getByText('❌ Backend unavailable for test')).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Analysis Result' })).toHaveCount(0);
+    await expect(page.getByText('Backend unavailable for test')).toBeVisible();
+    await expect(page.locator('.results-wrapper')).toHaveCount(0);
   });
 
   test('navigating to unknown route shows not found page and allows return home', async ({

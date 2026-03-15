@@ -118,6 +118,6 @@ describe('ResultsComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.textContent).toContain('Brak dodatkowego uzasadnienia.');
+    expect(compiled.textContent).toContain('No additional justification.');
   });
 });

@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { HomePageComponent } from '../../pages/home/home.component';
 import { ApiService } from '../../services/api.service';
 import { AnalyzerComponent } from '../../components/analyzer/analyzer.component';
+import { AiModelId } from '../../models/ai-model';
 
 describe('HomePageComponent', () => {
   let component: HomePageComponent;
@@ -31,7 +32,7 @@ describe('HomePageComponent', () => {
 
     await component.onAnalyzeRequest({
       emailText: 'Mail body',
-      selectedModel: 'gpt-4.1',
+      selectedModel: AiModelId.GPT_4_1,
       sender: 'sender@example.com',
       title: 'Test Email',
     });
@@ -64,7 +65,7 @@ describe('HomePageComponent', () => {
 
     const promise = component.onAnalyzeRequest({
       emailText: 'Mail body',
-      selectedModel: 'gpt-4.1',
+      selectedModel: AiModelId.GPT_4_1,
       sender: 'sender@example.com',
       title: 'Status update',
     });
@@ -82,7 +83,7 @@ describe('HomePageComponent', () => {
 
     await component.onAnalyzeRequest({
       emailText: 'Mail body',
-      selectedModel: 'gpt-4.1',
+      selectedModel: AiModelId.GPT_4_1,
       sender: 'sender@example.com',
       title: 'Test Email',
     });
@@ -99,7 +100,7 @@ describe('HomePageComponent', () => {
 
     await component.onAnalyzeRequest({
       emailText: 'Mail body',
-      selectedModel: 'gpt-4.1',
+      selectedModel: AiModelId.GPT_4_1,
       sender: 'test@example.com',
       title: 'Test',
     });
@@ -114,7 +115,7 @@ describe('HomePageComponent', () => {
 
     await component.onAnalyzeRequest({
       emailText: 'Mail body',
-      selectedModel: 'gpt-4.1',
+      selectedModel: AiModelId.GPT_4_1,
       sender: 'test@example.com',
       title: 'Test',
     });
@@ -182,7 +183,7 @@ describe('HomePageComponent template', () => {
 
     analyzer.analyzeRequest.emit({
       emailText: 'Payload from child output',
-      selectedModel: 'gpt-4.1',
+      selectedModel: AiModelId.GPT_4_1,
       sender: 'sender@example.com',
       title: 'Injected title',
     });

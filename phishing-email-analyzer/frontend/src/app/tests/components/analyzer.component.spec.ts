@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AnalyzerComponent } from '../../components/analyzer/analyzer.component';
+import { AiModelId } from '../../models/ai-model';
 
 describe('AnalyzerComponent', () => {
   let fixture: ComponentFixture<AnalyzerComponent>;
@@ -22,8 +23,8 @@ describe('AnalyzerComponent', () => {
 
   it('should expose expected models list', () => {
     expect(component.models.length).toBe(5);
-    expect(component.models.map((model) => model.id)).toContain('gpt-4.1');
-    expect(component.models.map((model) => model.id)).toContain('bielik-2-4bit');
+    expect(component.models.map((model) => model.id)).toContain(AiModelId.GPT_4_1);
+    expect(component.models.map((model) => model.id)).toContain(AiModelId.BIELIK_2_4BIT);
   });
 
   it('should set internal error and not emit when email text is empty', () => {
@@ -40,14 +41,14 @@ describe('AnalyzerComponent', () => {
     const emitSpy = vi.spyOn(component.analyzeRequest, 'emit');
 
     component.emailText.set('Important email content');
-    component.selectedModel.set('gpt-4.1');
+    component.selectedModel.set(AiModelId.GPT_4_1);
     component.sender.set('  sender@example.com  ');
 
     component.onAnalyze();
 
     expect(emitSpy).toHaveBeenCalledWith({
       emailText: 'Important email content',
-      selectedModel: 'gpt-4.1',
+      selectedModel: AiModelId.GPT_4_1,
       sender: 'sender@example.com',
       title: '',
     });
