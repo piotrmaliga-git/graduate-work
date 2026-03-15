@@ -26,6 +26,60 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check duplicate translation keys (XLF)
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+
+          const localeDir = path.join(process.cwd(), 'src', 'locale');
+          if (!fs.existsSync(localeDir)) {
+            console.log('No locale directory found, skipping duplication check.');
+            process.exit(0);
+          }
+
+          const files = fs
+            .readdirSync(localeDir)
+            .filter((fileName) => fileName.endsWith('.xlf'));
+
+          if (files.length === 0) {
+            console.log('No XLF files found, skipping duplication check.');
+            process.exit(0);
+          }
+
+          const unitIdRegex = /<(?:unit|trans-unit)\b[^>]*\bid="([^"]+)"/g;
+          let hasDuplicateKeys = false;
+
+          for (const fileName of files) {
+            const filePath = path.join(localeDir, fileName);
+            const content = fs.readFileSync(filePath, 'utf8');
+            const keyCounts = new Map();
+
+            for (const match of content.matchAll(unitIdRegex)) {
+              const key = match[1];
+              keyCounts.set(key, (keyCounts.get(key) || 0) + 1);
+            }
+
+            const duplicates = [...keyCounts.entries()]
+              .filter(([, count]) => count > 1)
+              .sort(([a], [b]) => a.localeCompare(b));
+
+            if (duplicates.length > 0) {
+              hasDuplicateKeys = true;
+              console.error(`Duplicate translation keys in ${fileName}:`);
+              for (const [key, count] of duplicates) {
+                console.error(`  - ${key} (x${count})`);
+              }
+            }
+          }
+
+          if (hasDuplicateKeys) {
+            process.exit(1);
+          }
+
+          console.log('No duplicate translation keys found in XLF files.');
+          NODE
+
       - name: Build
         run: npm run build
 
