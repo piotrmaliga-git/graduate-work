@@ -72,10 +72,7 @@
           "defaultConfiguration": "development"
         },
         "test": {
-          "builder": "@angular/build:unit-test",
-          "options": {
-            "codeCoverageReporter": ["lcov", "text-summary"]
-          }
+          "builder": "@angular/build:unit-test"
         }
       }
     }
