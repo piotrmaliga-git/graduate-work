@@ -7,6 +7,7 @@ import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
 import { MessageModule } from 'primeng/message';
 import { CardModule } from 'primeng/card';
+import { AI_MODEL_OPTIONS, AiModelId } from '../../models/ai-model';
 
 @Component({
   selector: 'analyzer',
@@ -28,7 +29,7 @@ export class AnalyzerComponent {
   readonly externalError = input<string>('', { alias: 'error' });
   readonly analyzeRequest = output<{
     emailText: string;
-    selectedModel: string;
+    selectedModel: AiModelId;
     sender: string;
     title: string;
   }>();
@@ -36,20 +37,16 @@ export class AnalyzerComponent {
   emailText = signal<string>('');
   sender = signal<string>('');
   title = signal<string>('');
-  selectedModel = signal<string>('gpt-4.1');
+  selectedModel = signal<AiModelId>(AiModelId.GPT_4_1);
   internalError = signal<string>('');
 
-  models = [
-    { id: 'gpt-4.1', name: 'GPT-4.1' },
-    { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro' },
-    { id: 'mistral-7b', name: 'Mistral 7B' },
-    { id: 'llama-cloud', name: 'Llama Cloud' },
-    { id: 'bielik-2-4bit', name: 'Bielik 2 (4-bit)' },
-  ];
+  readonly models = AI_MODEL_OPTIONS;
+
+  readonly errorEmptyEmail = $localize`:analyzer|Validation message when email body is empty@@analyzer.errorEmptyEmail:Please enter email text`;
 
   onAnalyze() {
     if (!this.emailText().trim()) {
-      this.internalError.set('Please enter email text');
+      this.internalError.set(this.errorEmptyEmail);
       return;
     }
     this.analyzeRequest.emit({

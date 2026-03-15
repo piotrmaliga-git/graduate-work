@@ -6,6 +6,7 @@ import { AnalyzerComponent } from '../../components/analyzer/analyzer.component'
 import { ResultsComponent } from '../../components/results/results.component';
 import { InfoComponent } from '../../components/info/info.component';
 import { FooterComponent } from '../../components/footer/footer.component';
+import { AiModelId } from '../../models/ai-model';
 
 const comments = [
   HeaderComponent,
@@ -43,7 +44,7 @@ export class HomePageComponent {
 
   async onAnalyzeRequest(payload: {
     emailText: string;
-    selectedModel: string;
+    selectedModel: AiModelId;
     sender: string;
     title: string;
   }) {
