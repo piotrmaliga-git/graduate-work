@@ -39,8 +39,14 @@ def classify_with_gemini(email_text: str, model: str) -> tuple[str, str]:
                 "max_output_tokens": 500
             }
         )
-        
-        content = response.text.strip()
+
+        raw_text = getattr(response, "text", None)
+        if raw_text is None:
+            return "error: empty text response from gemini", "Gemini returned None as response text"
+
+        content = raw_text.strip()
+        if not content:
+            return "error: blank text response from gemini", "Gemini returned an empty response text"
         
         # Parse the response
         prediction = "legit"

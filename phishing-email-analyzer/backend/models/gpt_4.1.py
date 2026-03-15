@@ -42,8 +42,17 @@ def classify_with_gpt4_1(email_text: str) -> tuple[str, str]:
             temperature=0,
             max_tokens=500
         )
-        
-        content = response.choices[0].message.content.strip()
+
+        if not response.choices:
+            return "error: empty response from gpt-4.1", "No choices returned by OpenAI API"
+
+        raw_content = response.choices[0].message.content
+        if raw_content is None:
+            return "error: empty text response from gpt-4.1", "OpenAI returned None as message content"
+
+        content = raw_content.strip()
+        if not content:
+            return "error: blank text response from gpt-4.1", "OpenAI returned an empty message content"
         
         # Parse the response
         prediction = "legit"
