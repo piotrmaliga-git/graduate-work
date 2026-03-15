@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { ResultsComponent } from '../../components/results/results.component';
 import { AnalysisResult } from '../../models/prediction';
 
@@ -80,11 +81,8 @@ describe('ResultsComponent', () => {
     fixture.componentRef.setInput('result', result);
     fixture.detectChanges();
 
-    const compiled = fixture.nativeElement as HTMLElement;
-    const predictionBadge = compiled.querySelector('.font-bold.rounded') as HTMLElement;
-
-    expect(predictionBadge.className).toContain('text-danger');
-    expect(predictionBadge.className).toContain('bg-red-100');
+    const predictionTag = fixture.debugElement.query(By.css('p-tag'));
+    expect(predictionTag.componentInstance.severity).toBe('danger');
   });
 
   it('should apply legit style class for legit prediction', () => {
@@ -101,11 +99,8 @@ describe('ResultsComponent', () => {
     fixture.componentRef.setInput('result', result);
     fixture.detectChanges();
 
-    const compiled = fixture.nativeElement as HTMLElement;
-    const predictionBadge = compiled.querySelector('.font-bold.rounded') as HTMLElement;
-
-    expect(predictionBadge.className).toContain('text-success');
-    expect(predictionBadge.className).toContain('bg-green-100');
+    const predictionTag = fixture.debugElement.query(By.css('p-tag'));
+    expect(predictionTag.componentInstance.severity).toBe('success');
   });
 
   it('should render fallback reason when reason is empty', () => {

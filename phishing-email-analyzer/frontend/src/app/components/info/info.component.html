@@ -1,23 +1,10 @@
-<div class="p-8 bg-white rounded-lg shadow-lg">
-  <h2 class="mb-5 text-xl font-bold text-gray-900">📋 Available Models</h2>
-  <ul class="space-y-3">
-    <li class="py-3 leading-relaxed text-gray-700 border-b border-gray-200">
-      <strong class="text-primary">GPT-4.1:</strong> Latest OpenAI model with improved reasoning
-    </li>
-    <li class="py-3 leading-relaxed text-gray-700 border-b border-gray-200">
-      <strong class="text-primary">Gemini 2.5 Pro:</strong> Google's latest LLM with advanced
-      understanding
-    </li>
-    <li class="py-3 leading-relaxed text-gray-700 border-b border-gray-200">
-      <strong class="text-primary">Mistral 7B:</strong> Open-source model from Mistral AI with 7
-      billion parameters
-    </li>
-    <li class="py-3 leading-relaxed text-gray-700 border-b border-gray-200">
-      <strong class="text-primary">Llama Cloud:</strong> Meta's LLM accessed via cloud API
-    </li>
-    <li class="py-3 leading-relaxed text-gray-700">
-      <strong class="text-primary">Bielik 2 (4-bit):</strong> Polish language model running locally
-      in 4-bit quantization mode
-    </li>
+<p-card header="Available Models" styleClass="info-card">
+  <ul class="model-list">
+    @for (model of models; track model.name) {
+      <li>
+        <strong>{{ model.name }}:</strong>
+        <span>{{ model.description }}</span>
+      </li>
+    }
   </ul>
-</div>
+</p-card>

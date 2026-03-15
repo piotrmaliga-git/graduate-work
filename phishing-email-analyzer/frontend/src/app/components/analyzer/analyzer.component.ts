@@ -1,12 +1,26 @@
 import { Component, signal, ChangeDetectionStrategy, input, output } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
+import { SelectModule } from 'primeng/select';
+import { InputTextModule } from 'primeng/inputtext';
+import { TextareaModule } from 'primeng/textarea';
+import { ButtonModule } from 'primeng/button';
+import { MessageModule } from 'primeng/message';
+import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'analyzer',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule],
+  imports: [
+    FormsModule,
+    SelectModule,
+    InputTextModule,
+    TextareaModule,
+    ButtonModule,
+    MessageModule,
+    CardModule,
+  ],
   templateUrl: './analyzer.component.html',
 })
 export class AnalyzerComponent {

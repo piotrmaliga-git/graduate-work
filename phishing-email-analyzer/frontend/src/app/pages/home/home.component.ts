@@ -20,11 +20,9 @@ const comments = [
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [...comments],
-  template: `<div
-    class="min-h-screen w-full bg-gradient-to-br from-blue-50 to-blue-200 flex flex-col"
-  >
+  template: `<div class="app-shell">
     <page-header />
-    <main class="w-full max-w-6xl mx-auto px-5 flex flex-col flex-1">
+    <main class="app-content">
       <analyzer
         [loading]="loading()"
         [error]="error()"
