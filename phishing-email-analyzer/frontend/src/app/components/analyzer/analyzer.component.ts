@@ -26,7 +26,7 @@ import { AI_MODEL_OPTIONS, AiModelId } from '../../models/ai-model';
 })
 export class AnalyzerComponent {
   readonly loading = input.required<boolean>();
-  readonly externalError = input<string>('', { alias: 'error' });
+  readonly externalError = input<string>('');
   readonly analyzeRequest = output<{
     emailText: string;
     selectedModel: AiModelId;
