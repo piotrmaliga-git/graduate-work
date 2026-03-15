@@ -1,4 +1,5 @@
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 
 import { HeaderComponent } from '../../components/header/header.component';
@@ -26,7 +27,7 @@ const comments = [
     <main class="app-content">
       <analyzer
         [loading]="loading()"
-        [error]="error()"
+        [externalError]="error()"
         (analyzeRequest)="onAnalyzeRequest($event)"
       ></analyzer>
       <results [result]="result()"></results>
@@ -40,7 +41,7 @@ export class HomePageComponent {
   loading = signal<boolean>(false);
   error = signal<string>('');
 
-  constructor(private api: ApiService) {}
+  constructor(private readonly api: ApiService) {}
 
   async onAnalyzeRequest(payload: {
     emailText: string;
@@ -53,14 +54,14 @@ export class HomePageComponent {
     this.result.set(null);
 
     try {
-      const response = await this.api
-        .analyze({
+      const response = await firstValueFrom(
+        this.api.analyze({
           email_text: payload.emailText,
           model_name: payload.selectedModel,
           sender: payload.sender,
           title: payload.title,
         })
-        .toPromise();
+      );
 
       this.result.set(response ?? null);
     } catch (error: any) {
