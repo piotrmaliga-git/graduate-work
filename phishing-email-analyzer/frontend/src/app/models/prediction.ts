@@ -13,5 +13,4 @@ export interface AnalysisResult {
   sender: string;
   title: string;
   response_time_ms: number;
-  frontend_time_ms?: number;
 }

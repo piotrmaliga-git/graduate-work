@@ -53,8 +53,6 @@ export class HomePageComponent {
     this.error.set('');
     this.result.set(null);
 
-    const startTime = performance.now();
-
     try {
       const response = await this.api
         .analyze({
@@ -64,13 +62,6 @@ export class HomePageComponent {
           title: payload.title,
         })
         .toPromise();
-
-      const endTime = performance.now();
-      const frontendTimeMs = Math.round((endTime - startTime) * 100) / 100;
-
-      if (response) {
-        response.frontend_time_ms = frontendTimeMs;
-      }
 
       this.result.set(response ?? null);
     } catch (error: any) {

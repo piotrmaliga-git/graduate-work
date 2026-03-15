@@ -45,7 +45,6 @@ describe('HomePageComponent', () => {
     expect(component.result()).toEqual(response);
     expect(component.error()).toBe('');
     expect(component.loading()).toBe(false);
-    expect(typeof component.result()?.frontend_time_ms).toBe('number');
   });
 
   it('should clear previous state when starting a new analyze request', async () => {
@@ -76,32 +75,6 @@ describe('HomePageComponent', () => {
 
     await promise;
     expect(component.loading()).toBe(false);
-  });
-
-  it('should add rounded frontend_time_ms to response when response exists', async () => {
-    const response = {
-      model: 'gpt-4.1',
-      prediction: 'phishing' as const,
-      reason: 'Suspicious content',
-      timestamp: '2026-03-03T12:00:00Z',
-      sender: 'attacker@example.com',
-      title: 'Test Email',
-      response_time_ms: 1500,
-    };
-    apiServiceMock.analyze.mockReturnValue(of(response));
-
-    const nowSpy = vi.spyOn(performance, 'now');
-    nowSpy.mockReturnValueOnce(1000.111).mockReturnValueOnce(1001.349);
-
-    await component.onAnalyzeRequest({
-      emailText: 'Mail body',
-      selectedModel: 'gpt-4.1',
-      sender: 'sender@example.com',
-      title: 'Test Email',
-    });
-
-    expect(component.result()?.frontend_time_ms).toBe(1.24);
-    nowSpy.mockRestore();
   });
 
   it('should keep result null when backend returns no response body', async () => {
