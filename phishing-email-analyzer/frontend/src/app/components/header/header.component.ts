@@ -6,7 +6,6 @@ import { headerTranslations } from '../../utils/translations/translations';
 
 @Component({
   selector: 'page-header',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ButtonModule],
   templateUrl: './header.component.html',
