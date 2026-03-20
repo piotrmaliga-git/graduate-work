@@ -14,6 +14,7 @@ module.exports = defineConfig([
       'dist/**',
       'node_modules/**',
       'playwright-report/**',
+      'tools/**',
       'test-results/**',
     ],
   },
