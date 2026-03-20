@@ -5,6 +5,7 @@ const tseslint = require('typescript-eslint');
 const angular = require('angular-eslint');
 const globals = require('globals');
 const eslintConfigPrettier = require('eslint-config-prettier');
+const preferProtectedTemplateMembersRule = require('./tools/local-eslint-rules/prefer-protected-template-members/prefer-protected-template-members');
 
 module.exports = defineConfig([
   {
@@ -32,11 +33,19 @@ module.exports = defineConfig([
         ...globals.node,
       },
     },
+    plugins: {
+      local: {
+        rules: {
+          'prefer-protected-template-members': preferProtectedTemplateMembersRule,
+        },
+      },
+    },
     processor: angular.processInlineTemplates,
     rules: {
       '@angular-eslint/component-selector': 'off',
       '@angular-eslint/directive-selector': 'off',
       '@angular-eslint/prefer-inject': 'off',
+      'local/prefer-protected-template-members': 'warn',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
