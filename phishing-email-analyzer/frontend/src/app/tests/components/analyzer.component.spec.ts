@@ -1,4 +1,7 @@
+import { type DebugElement } from '@angular/core';
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgModel } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 import { AnalyzerComponent } from '../../components/analyzer/analyzer.component';
 import { AiModelId } from '../../utils/constants/constans';
 

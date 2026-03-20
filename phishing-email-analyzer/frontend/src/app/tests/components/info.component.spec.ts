@@ -1,10 +1,6 @@
-<<<<<<< HEAD
+import { type DebugElement } from '@angular/core';
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
-=======
-import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
->>>>>>> 7f8b7f8c89aafeb8a2033a629707fb82c6a99cd6
 import { InfoComponent } from '../../components/info/info.component';
 
 describe('InfoComponent', () => {

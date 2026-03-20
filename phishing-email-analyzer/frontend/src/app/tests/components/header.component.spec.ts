@@ -1,4 +1,6 @@
+import { signal, type DebugElement } from '@angular/core';
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { HeaderComponent } from '../../components/header/header.component';
 import { LocaleService } from '../../services/locale.service';
 
