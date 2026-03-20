@@ -27,7 +27,7 @@ export class HeaderComponent {
     const lang = this.document.documentElement.lang || '';
     if (lang.startsWith('pl')) return true;
 
-    const path = this.document.defaultView?.location.pathname || '';
+    const path = this.document.defaultView?.location?.pathname || '';
     return path === '/pl' || path.startsWith('/pl/');
   }
 
