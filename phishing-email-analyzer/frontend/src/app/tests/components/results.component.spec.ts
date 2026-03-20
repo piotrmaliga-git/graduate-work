@@ -6,6 +6,15 @@ import { type AnalysisResult } from '../../utils/interfaces/interfaces';
 describe('ResultsComponent', () => {
   let fixture: ComponentFixture<ResultsComponent>;
 
+  const util = {
+    resultsCard(): DebugElement | null {
+      return fixture.debugElement.query(By.css('[data-testid="results-card"]'));
+    },
+    predictionTag(): DebugElement {
+      return fixture.debugElement.query(By.css('[data-testid="prediction-tag"]'));
+    },
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ResultsComponent],
@@ -22,8 +31,7 @@ describe('ResultsComponent', () => {
     fixture.componentRef.setInput('result', null);
     fixture.detectChanges();
 
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h2')).toBeNull();
+    expect(util.resultsCard()).toBeNull();
   });
 
   it('should render analysis details when result is provided', () => {
@@ -81,8 +89,7 @@ describe('ResultsComponent', () => {
     fixture.componentRef.setInput('result', result);
     fixture.detectChanges();
 
-    const predictionTag = fixture.debugElement.query(By.css('p-tag'));
-    expect(predictionTag.componentInstance.severity).toBe('danger');
+    expect(util.predictionTag().componentInstance.severity).toBe('danger');
   });
 
   it('should apply legit style class for legit prediction', () => {
@@ -99,8 +106,7 @@ describe('ResultsComponent', () => {
     fixture.componentRef.setInput('result', result);
     fixture.detectChanges();
 
-    const predictionTag = fixture.debugElement.query(By.css('p-tag'));
-    expect(predictionTag.componentInstance.severity).toBe('success');
+    expect(util.predictionTag().componentInstance.severity).toBe('success');
   });
 
   it('should render fallback reason when reason is empty', () => {

@@ -18,6 +18,10 @@ describe('HomePageComponent', () => {
     component = new HomePageComponent(apiServiceMock as any);
   });
 
+  it('should create the component', () => {
+    expect(component).toBeTruthy();
+  });
+
   it('should map payload and set result on successful analyze request', async () => {
     const response = {
       model: 'gpt-4.1',
@@ -140,7 +144,29 @@ describe('HomePageComponent', () => {
 
 describe('HomePageComponent template', () => {
   let fixture: ComponentFixture<HomePageComponent>;
+  let component: HomePageComponent;
   let apiServiceMock: { analyze: ReturnType<typeof vi.fn> };
+
+  const util = {
+    header(): DebugElement {
+      return fixture.debugElement.query(By.css('[data-testid="home-header"]'));
+    },
+    analyzer(): DebugElement {
+      return fixture.debugElement.query(By.css('[data-testid="home-analyzer"]'));
+    },
+    results(): DebugElement {
+      return fixture.debugElement.query(By.css('[data-testid="home-results"]'));
+    },
+    info(): DebugElement {
+      return fixture.debugElement.query(By.css('[data-testid="home-info"]'));
+    },
+    footer(): DebugElement {
+      return fixture.debugElement.query(By.css('[data-testid="home-footer"]'));
+    },
+    analyzerDebug(): DebugElement {
+      return fixture.debugElement.query(By.directive(AnalyzerComponent));
+    },
+  };
 
   beforeEach(async () => {
     apiServiceMock = {
@@ -153,17 +179,20 @@ describe('HomePageComponent template', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePageComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should render all main child sections', () => {
-    const compiled = fixture.nativeElement as HTMLElement;
+  it('should create the component fixture', () => {
+    expect(component).toBeTruthy();
+  });
 
-    expect(compiled.querySelector('page-header')).toBeTruthy();
-    expect(compiled.querySelector('analyzer')).toBeTruthy();
-    expect(compiled.querySelector('results')).toBeTruthy();
-    expect(compiled.querySelector('info')).toBeTruthy();
-    expect(compiled.querySelector('page-footer')).toBeTruthy();
+  it('should render all main child sections', () => {
+    expect(util.header()).toBeTruthy();
+    expect(util.analyzer()).toBeTruthy();
+    expect(util.results()).toBeTruthy();
+    expect(util.info()).toBeTruthy();
+    expect(util.footer()).toBeTruthy();
   });
 
   it('should handle analyzeRequest emitted by analyzer child', async () => {
@@ -178,10 +207,7 @@ describe('HomePageComponent template', () => {
     };
     apiServiceMock.analyze.mockReturnValue(of(response));
 
-    const analyzerDebug = fixture.debugElement.query(By.directive(AnalyzerComponent));
-    const analyzer = analyzerDebug.componentInstance as AnalyzerComponent;
-
-    analyzer.analyzeRequest.emit({
+    component.onAnalyzeRequest({
       emailText: 'Payload from child output',
       selectedModel: AiModelId.GPT_4_1,
       sender: 'sender@example.com',
@@ -197,7 +223,7 @@ describe('HomePageComponent template', () => {
       sender: 'sender@example.com',
       title: 'Injected title',
     });
-    expect(fixture.componentInstance.result()?.title).toBe('Injected title');
-    expect(fixture.componentInstance.loading()).toBe(false);
+    expect(component.result()?.title).toBe('Injected title');
+    expect(component.loading()).toBe(false);
   });
 });
