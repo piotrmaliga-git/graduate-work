@@ -1,4 +1,4 @@
-import { AiModelId } from '../enums/enums';
+import { type AiModelId } from '../enums/enums';
 
 export interface EmailRequest {
   email_text: string;

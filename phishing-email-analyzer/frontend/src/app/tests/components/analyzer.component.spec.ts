@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { type ComponentFixture, TestBed } from '@angular/core/testing';
 import { AnalyzerComponent } from '../../components/analyzer/analyzer.component';
 import { AiModelId } from '../../utils/constants/constans';
 

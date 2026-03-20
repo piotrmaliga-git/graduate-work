@@ -1,5 +1,5 @@
 import { of, throwError } from 'rxjs';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { type ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { HomePageComponent } from '../../pages/home/home.component';
 import { ApiService } from '../../services/api.service';

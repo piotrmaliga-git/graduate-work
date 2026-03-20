@@ -1,5 +1,5 @@
 import { AiModelId } from '../enums/enums';
-import { AiModelOption } from '../interfaces/interfaces';
+import { type AiModelOption } from '../interfaces/interfaces';
 
 export { AiModelId } from '../enums/enums';
 

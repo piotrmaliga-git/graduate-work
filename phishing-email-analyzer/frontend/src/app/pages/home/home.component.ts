@@ -8,6 +8,7 @@ import { ResultsComponent } from '../../components/results/results.component';
 import { InfoComponent } from '../../components/info/info.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { AiModelId } from '../../utils/constants/constans';
+import type { AnalysisResult } from '../../utils/interfaces/interfaces';
 
 const comments = [
   HeaderComponent,
@@ -37,7 +38,7 @@ const comments = [
   </div>`,
 })
 export class HomePageComponent {
-  result = signal<any>(null);
+  result = signal<AnalysisResult | null>(null);
   loading = signal<boolean>(false);
   error = signal<string>('');
 
@@ -64,11 +65,8 @@ export class HomePageComponent {
       );
 
       this.result.set(response ?? null);
-    } catch (error: any) {
-      this.error.set(
-        error?.error?.detail ||
-          'Error analyzing email. Make sure backend is running on http://localhost:8000'
-      );
+    } catch (error: unknown) {
+      this.error.set(this.getErrorMessage(error));
     } finally {
       this.loading.set(false);
     }
@@ -77,5 +75,22 @@ export class HomePageComponent {
   clear() {
     this.result.set(null);
     this.error.set('');
+  }
+
+  private getErrorMessage(error: unknown): string {
+    if (
+      typeof error === 'object' &&
+      error !== null &&
+      'error' in error &&
+      typeof error.error === 'object' &&
+      error.error !== null &&
+      'detail' in error.error &&
+      typeof error.error.detail === 'string' &&
+      error.error.detail.trim()
+    ) {
+      return error.error.detail;
+    }
+
+    return 'Error analyzing email. Make sure backend is running on http://localhost:8000';
   }
 }

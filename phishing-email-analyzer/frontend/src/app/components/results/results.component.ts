@@ -1,6 +1,6 @@
 import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AnalysisResult } from '../../utils/interfaces/interfaces';
+import { type AnalysisResult } from '../../utils/interfaces/interfaces';
 import { FormatReasonPipe } from '../../pipes/format-reason.pipe';
 import { FormatTimePipe } from '../../pipes/format-time.pipe';
 import { CardModule } from 'primeng/card';

@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { type ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ResultsComponent } from '../../components/results/results.component';
-import { AnalysisResult } from '../../utils/interfaces/interfaces';
+import { type AnalysisResult } from '../../utils/interfaces/interfaces';
 
 describe('ResultsComponent', () => {
   let fixture: ComponentFixture<ResultsComponent>;

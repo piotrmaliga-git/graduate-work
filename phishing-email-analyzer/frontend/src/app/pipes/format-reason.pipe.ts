@@ -1,5 +1,5 @@
-import { Pipe, PipeTransform, inject } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Pipe, type PipeTransform, inject } from '@angular/core';
+import { DomSanitizer, type SafeHtml } from '@angular/platform-browser';
 import { pipesTranslations } from '../utils/translations/translations';
 
 @Pipe({
@@ -14,7 +14,7 @@ export class FormatReasonPipe implements PipeTransform {
       return pipesTranslations['noReason'];
     }
 
-    let formatted = value
+    const formatted = value
       // Convert **bold** to <strong>
       .replaceAll(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
       // Convert numbered lists (1. 2. etc) to proper formatting
