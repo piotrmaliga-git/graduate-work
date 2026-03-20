@@ -1,0 +1,22 @@
+name: PR Backend check
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  syntax-check:
+    name: Backend syntax check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Compile backend sources
+        run: python -m compileall phishing-email-analyzer/backend
