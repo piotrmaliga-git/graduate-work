@@ -25,7 +25,7 @@
 \usepackage{multirow} % Multirow tables
 \usepackage{array} % Enhanced tables
 \usepackage{float} % Float positioning
-\usepackage[style=ieee]{biblatex}
+\usepackage[backend=biber,style=ieee]{biblatex}
 \usepackage{csquotes}
 \usepackage{afterpage}
 \usepackage{amsmath}
@@ -57,6 +57,7 @@ urlcolor=black,%
 % Settings for paragraph indentation and line spacing
 \setlength{\parindent}{0.63cm}
 \setstretch{1.25}
+\setlength{\emergencystretch}{3em}
 
 % Justify paragraphs
 \justifying
@@ -74,7 +75,7 @@ urlcolor=black,%
 % Konfiguracja listings (dla kompatybilności)
 \lstset{
     basicstyle=\ttfamily\small,
-    keywordstyle=\color{blue}\bfseries,
+  keywordstyle=\color{blue},
     commentstyle=\color{gray}\itshape,
     stringstyle=\color{red},
     numbers=left,

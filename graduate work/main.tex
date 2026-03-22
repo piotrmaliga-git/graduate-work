@@ -144,7 +144,7 @@ Zbiór wykorzystany w badaniu został zapisany w pliku \texttt{data/data.json}. 
 
 \subsection{Istniejące zbiory danych (np. Seven Phishing Email Datasets -- Figshare)}
 
-Punktem wyjścia dla przygotowania własnego zbioru była publicznie dostępna kolekcja \textit{Seven Phishing Email Datasets} udostępniona w serwisie Figshare pod adresem \url{https://figshare.com/articles/dataset/Seven_Phishing_Email_Datasets/25432108}. Zbiór ten stanowił źródło inspiracji dla konstrukcji przypadków użycia, typów oszustw oraz rozróżnienia pomiędzy wiadomościami podejrzanymi i legalnymi.
+Punktem wyjścia dla przygotowania własnego zbioru była publicznie dostępna kolekcja \textit{Seven Phishing Email Datasets} udostępniona w serwisie Figshare pod adresem \href{https://figshare.com/articles/dataset/Seven_Phishing_Email_Datasets/25432108}{https://figshare.com/articles/dataset/...}. Zbiór ten stanowił źródło inspiracji dla konstrukcji przypadków użycia, typów oszustw oraz rozróżnienia pomiędzy wiadomościami podejrzanymi i legalnymi.
 
 W pracy nie wykorzystano tej kolekcji wprost jako finalnego pliku wejściowego aplikacji. Zamiast tego potraktowano ją jako bazę referencyjną do budowy własnego, spójnego zbioru polskojęzycznego, lepiej dopasowanego do celu porównania modeli i demonstracji działania aplikacji.
 
@@ -246,15 +246,21 @@ W eksperymentach wsadowych funkcje klasyfikujące otrzymują treść wiadomości
 
 \section{Charakterystyka użytych modeli}
 
-W systemie uwzględniono pięć modeli, reprezentujących zarówno rozwiązania komercyjne, jak i otwarte:
+W systemie uwzględniono pięć modeli, reprezentujących zarówno rozwiązania komercyjne, jak i otwarte. Dobór tej grupy miał charakter celowy: zestawiono modele globalne, rozwijane przez duże organizacje badawczo-przemysłowe, z modelem silniej ukierunkowanym na język polski oraz z lżejszym modelem open-source.
 
 \begin{itemize}
-    \item \textbf{GPT-4.1} -- model rodziny OpenAI, wykorzystywany jako mocny punkt odniesienia dla jakości odpowiedzi i uzasadnień \cite{openai2024gpt4},
-    \item \textbf{Gemini 2.5 Pro} -- model Google, użyty jako reprezentant zaawansowanych modeli chmurowych,
-    \item \textbf{Mistral 7B} -- model open-source o relatywnie mniejszej liczbie parametrów, wykorzystywany jako punkt porównania dla lżejszych architektur,
-    \item \textbf{Llama Cloud} -- model z rodziny Llama udostępniany przez usługę chmurową \cite{touvron2023llama},
-    \item \textbf{Bielik 2 (4-bit)} -- model ukierunkowany na język polski, istotny z punktu widzenia lokalnego charakteru danych \cite{bielik2024,piotrowski2024evaluating}.
+    \item \textbf{GPT-4.1 (OpenAI)} -- model z rodziny GPT rozwijanej przez OpenAI, której wcześniejsze generacje istotnie spopularyzowały zastosowania dużych modeli językowych w analizie tekstu i automatyzacji pracy eksperckiej. W niniejszym badaniu GPT-4.1 pełni rolę modelu referencyjnego o wysokiej jakości rozumienia kontekstu i generowania uzasadnień. Na tle wielu modeli otwartych wyróżnia się stabilnością odpowiedzi, dobrą kontrolą formatu wyjściowego oraz wysoką trafnością semantyczną, co ma znaczenie w zadaniu, gdzie oprócz etykiety ważne jest także wyjaśnienie decyzji \cite{openai2024gpt4}.
+
+    \item \textbf{Gemini 2.5 Pro (Google)} -- reprezentant rodziny modeli Gemini rozwijanej przez Google. Linia ta powstała jako następca wcześniejszych modeli Bard/PaLM i jest projektowana z myślą o zastosowaniach produkcyjnych, dużej skali oraz szerokim zakresie zadań językowych. W kontekście detekcji phishingu model ten jest interesujący ze względu na dobrą równowagę między czułością wykrywania zagrożeń a zdolnością do interpretacji neutralnych wiadomości, co ogranicza liczbę fałszywych alarmów.
+
+    \item \textbf{Mistral 7B (Mistral AI)} -- model open-source o relatywnie niewielkiej liczbie parametrów, opracowany przez firmę Mistral AI założoną w 2023 roku. Jego znaczenie badawcze polega na tym, że stanowi przykład architektury lżejszej obliczeniowo, możliwej do lokalnego uruchamiania przy mniejszych zasobach sprzętowych. Na tle modeli zamkniętych jego przewagą jest większa dostępność i elastyczność wdrożeniowa, natomiast ograniczeniem bywa niższa precyzja w subtelnych przypadkach granicznych.
+
+    \item \textbf{Llama Cloud (rodzina Llama)} -- model z rodziny Llama, wywodzącej się z prac badawczych Meta i szeroko wykorzystywanej w ekosystemie rozwiązań open-weight \cite{touvron2023llama}. Udostępnienie wariantu chmurowego umożliwia korzystanie z tego podejścia bez utrzymywania własnej infrastruktury inferencyjnej. Na tle modeli stricte komercyjnych rodzina Llama jest ceniona za silny wpływ na społeczność badawczą i praktykę inżynierską, ponieważ przyspieszyła rozwój narzędzi, benchmarków i metod dostrajania modeli.
+
+    \item \textbf{Bielik 2 (4-bit) (projekt polskojęzyczny)} -- model ukierunkowany na język polski, istotny z punktu widzenia lokalnego charakteru danych \cite{bielik2024,piotrowski2024evaluating}. W pracy użyto wariantu 4-bitowego, który redukuje wymagania pamięciowe i ułatwia uruchomienie na bardziej ograniczonym sprzęcie. Kluczową cechą Bielika na tle modeli globalnych jest lepsze dopasowanie do polskiej frazeologii, kontekstu administracyjnego i stylu komunikacji, co może przekładać się na większą trafność oceny wiadomości tworzonych w lokalnych realiach.
 \end{itemize}
+
+Zestawienie tych modeli pozwala porównać trzy różne perspektywy: jakość modeli chmurowych klasy premium, praktyczność lżejszych modeli otwartych oraz korzyści wynikające z dostosowania modelu do języka i kontekstu krajowego.
 
 Dobór modeli pozwala porównać zachowanie rozwiązań ogólnego przeznaczenia z modelem polskojęzycznym w zadaniu, w którym lokalny kontekst językowy ma realne znaczenie.
 
@@ -413,11 +419,11 @@ W przyszłości warto także przeprowadzić badanie porównawcze na szerszym zes
 Kod źródłowy projektu został podzielony na część backendową, frontendową i materiały pomocnicze. Najważniejsze elementy implementacji znajdują się w następujących lokalizacjach:
 
 \begin{itemize}
-    \item \texttt{phishing-email-analyzer/backend/main.py} -- główny punkt wejścia backendu FastAPI,
-    \item \texttt{phishing-email-analyzer/backend/models/} -- adaptery poszczególnych modeli klasyfikacyjnych,
-    \item \texttt{phishing-email-analyzer/backend/test\_all\_models.py} -- skrypt do porównawczych uruchomień modeli,
-    \item \texttt{phishing-email-analyzer/frontend/src/app/} -- komponenty, routing i serwisy aplikacji Angular,
-    \item \texttt{data/data.json} -- zbiór danych wykorzystany w eksperymentach.
+    \item \path{phishing-email-analyzer/backend/main.py} -- główny punkt wejścia backendu FastAPI,
+    \item \path{phishing-email-analyzer/backend/models/} -- adaptery poszczególnych modeli klasyfikacyjnych,
+    \item \path{phishing-email-analyzer/backend/test_all_models.py} -- skrypt do porównawczych uruchomień modeli,
+    \item \path{phishing-email-analyzer/frontend/src/app/} -- komponenty, routing i serwisy aplikacji Angular,
+    \item \path{data/data.json} -- zbiór danych wykorzystany w eksperymentach.
 \end{itemize}
 
 Poniżej zamieszczono skrócony przykład modelu danych wejściowych używanego przez backend:
