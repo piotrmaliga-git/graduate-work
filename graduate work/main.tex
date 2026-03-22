@@ -361,6 +361,46 @@ Rysunek \ref{fig:app-loading} przedstawia stan po uruchomieniu analizy, gdy form
 
 Rysunek \ref{fig:app-results} prezentuje końcowy rezultat działania systemu. Interfejs pokazuje nazwę użytego modelu, nadawcę, temat wiadomości, etykietę klasyfikacji, szczegółowe uzasadnienie decyzji modelu, a także czas odpowiedzi i znacznik czasu wykonania analizy.
 
+% ===== ROZDZIAŁ 6: STANDARYZACJA KLASYFIKACJI =====
+\chapter{Standaryzacja procesu klasyfikacji}
+\label{ch:standaryzacja}
+
+\section{Znaczenie warstwy standaryzacji}
+
+W systemach opartych na dużych modelach językowych samo wywołanie modelu nie jest wystarczające do uzyskania porównywalnych i użytecznych wyników. Poszczególne usługi różnią się bowiem sposobem formułowania zapytania, formatem odpowiedzi, stabilnością generacji oraz zakresem informacji zwracanych przez API. Z tego względu w projekcie \textbf{Phishing Email Analyzer} istotną rolę odgrywa warstwa standaryzacji, której zadaniem jest ujednolicenie procesu klasyfikacji niezależnie od użytego modelu.
+
+Z perspektywy badawczej warstwa ta pełni funkcję kontrolną. Ogranicza wpływ różnic implementacyjnych na wynik eksperymentu, dzięki czemu porównanie modeli dotyczy w większym stopniu ich rzeczywistych zdolności klasyfikacyjnych, a w mniejszym stopniu przypadkowych różnic w sposobie integracji. Z perspektywy inżynierskiej pozwala natomiast wystawić spójny kontrakt API do frontendu i raportowania wyników.
+
+W praktyce standaryzacja obejmuje trzy poziomy. Po pierwsze, konieczne jest ujednolicenie instrukcji przekazywanej modelowi. Po drugie, należy zunifikować strukturę odpowiedzi tak, aby niezależnie od dostawcy można było uzyskać końcową etykietę \texttt{phishing} lub \texttt{legit}. Po trzecie, trzeba ograniczyć wpływ niestabilności generacji oraz błędów wywołania zewnętrznych usług na końcową ocenę eksperymentu.
+
+\section{Projekt promptu i wymuszenie struktury odpowiedzi}
+
+W badanym systemie klasyfikacja nie polega na klasycznym uruchomieniu modelu binarnego wytrenowanego wyłącznie do zadania wykrywania phishingu, lecz na wykorzystaniu modeli ogólnego przeznaczenia sterowanych odpowiednio zaprojektowaną instrukcją. Dla modeli GPT-4.1, Gemini 2.5 Pro oraz Mistral 7B zastosowano wspólną logikę promptu systemowego, w której model otrzymuje rolę eksperta od detekcji phishingu oraz jawne polecenie zwrócenia dwóch elementów: etykiety klasyfikacyjnej i uzasadnienia decyzji.
+
+Takie podejście ma istotne zalety. Po pierwsze, zmniejsza ryzyko, że model zwróci wyłącznie swobodny opis bez jednoznacznej decyzji klasyfikacyjnej. Po drugie, umożliwia porównywanie nie tylko samych etykiet, ale również jakości uzasadnień, co z perspektywy systemów wspomagających analityka bezpieczeństwa ma znaczenie praktyczne. Po trzecie, wspólna forma promptu redukuje wpływ różnic stylistycznych między poszczególnymi adapterami modeli.
+
+Wymuszenie struktury odpowiedzi w postaci pól \texttt{Classification:} oraz \texttt{Reason:} stanowi w istocie prosty kontrakt komunikacyjny pomiędzy warstwą aplikacyjną a modelem. Jest to szczególnie ważne w systemach, w których odpowiedź modelu musi zostać dalej przetworzona programowo. Bez takiego kontraktu każda integracja wymagałaby osobnego, mniej przewidywalnego mechanizmu interpretacji tekstu wyjściowego, co zwiększałoby ryzyko błędów i utrudniało odtwarzalność eksperymentu.
+
+Warto podkreślić, że nawet przy wspólnym schemacie instrukcji modele nadal zachowują własny styl generowania odpowiedzi. Jedne formułują uzasadnienie bardziej syntetycznie, inne tworzą szerszy komentarz analityczny. Z tego powodu projekt promptu należy rozumieć nie jako pełne wyeliminowanie różnic między modelami, lecz jako ograniczenie ich do poziomu, który nie zaburza podstawowego celu badania, czyli porównania skuteczności klasyfikacji phishingu.
+
+\section{Normalizacja wyników i odporność na odpowiedzi niejednoznaczne}
+
+Samo wysłanie jednolitego promptu nie gwarantuje jeszcze pełnej porównywalności wyników. Modele generatywne mogą bowiem odpowiadać w sposób częściowo niezgodny z oczekiwanym formatem, stosować synonimy etykiet lub zwracać niejednoznaczne uzasadnienia. Z tego względu backend zawiera dodatkową warstwę parsowania i normalizacji odpowiedzi.
+
+Dla modeli GPT-4.1, Gemini 2.5 Pro i Mistral 7B zastosowano podobny mechanizm: backend najpierw próbuje odczytać sekcje \texttt{Classification} i \texttt{Reason}, a następnie mapuje uzyskaną treść do jednej z dwóch klas końcowych. Jeżeli model nie zwraca odpowiedzi w pełni zgodnej z oczekiwanym formatem, stosowana jest logika awaryjna oparta na analizie tekstu odpowiedzi. Takie rozwiązanie zmniejsza liczbę przypadków, w których technicznie poprawna, ale inaczej sformułowana odpowiedź zostałaby błędnie uznana za błąd integracji.
+
+Szczególnie interesujący jest przypadek modelu Llama Cloud, dla którego integracja ma odmienny charakter. Zamiast klasycznego promptu tekstowego wykorzystywany jest mechanizm klasyfikatora opartego na zdefiniowanych regułach kategorii. Otrzymany wynik również wymaga jednak normalizacji, ponieważ warstwa usługowa może zwracać opisy i etykiety pośrednie, które nie są tożsame z kontraktem API przyjętym w aplikacji. W praktyce oznacza to konieczność przekształcenia odpowiedzi dostawcy do wspólnej reprezentacji końcowej.
+
+Warstwa normalizacji ma więc bezpośredni wpływ na jakość eksperymentu. Jeżeli zostanie zaprojektowana zbyt agresywnie, może sztucznie poprawiać wyniki, narzucając z góry interpretację odpowiedzi. Jeżeli natomiast będzie zbyt słaba, wzrośnie liczba błędów technicznych i przypadków niezaklasyfikowanych. Właściwy balans polega na tym, aby logika parsowania była możliwie prosta, jawna i odporna na typowe odchylenia formatu, ale jednocześnie nie zastępowała rzeczywistej decyzji modelu arbitralną heurystyką.
+
+\section{Deterministyczność wywołań i wpływ na odtwarzalność}
+
+W badaniach porównawczych z udziałem modeli językowych szczególne znaczenie ma ograniczenie losowości generacji. W przeciwnym razie ten sam model może dla tego samego wejścia zwracać różne decyzje lub różnie rozbudowane uzasadnienia, co utrudnia interpretację wyników. W analizowanym systemie problem ten został częściowo ograniczony przez zastosowanie ustawień deterministycznych lub quasi-deterministycznych, takich jak \texttt{temperature=0} dla części modeli API oraz \texttt{do\_sample=False} w przypadku lokalnie uruchamianego Mistrala 7B.
+
+Nie oznacza to jednak pełnej powtarzalności eksperymentu. W praktyce na wynik nadal mogą wpływać zmiany po stronie zewnętrznych usług, aktualizacje modeli dostawców, limity czasowe API, błędy sieciowe oraz różnice środowiskowe przy lokalnym uruchamianiu modeli. Z perspektywy metodologicznej należy więc odróżnić dwa poziomy odtwarzalności: odtwarzalność logiki aplikacji oraz odtwarzalność samego zachowania modelu. Pierwszy poziom można kontrolować stosunkowo dobrze poprzez jawny kod adapterów i spójny pipeline. Drugi poziom jest ograniczony przez naturę współczesnych usług modelowych.
+
+Właśnie z tego względu opis warstwy standaryzacji jest ważnym elementem pracy magisterskiej. Pozwala wykazać, że ocena modeli nie była jedynie wynikiem prostego wysłania tekstu do różnych API, lecz efektem świadomie zaprojektowanego procesu, w którym kontrolowano format wejścia, interpretację wyjścia oraz podstawowe parametry uruchomieniowe. Dzięki temu uzyskane wyniki można traktować jako bardziej wiarygodne zarówno z perspektywy badawczej, jak i inżynierskiej.
+
 % ===== ROZDZIAŁ 5: METODOLOGIA EKSPERYMENTU =====
 \chapter{Metodologia eksperymentu}
 \label{ch:implementacja}
@@ -376,6 +416,78 @@ Badanie wykonano na zbiorze \texttt{data/data.json} zawierającym 500 rekordów.
 \end{itemize}
 
 Rozkład klas jest zbalansowany: 250 wiadomości \texttt{phishing} i 250 wiadomości \texttt{legit}. Kategorie obejmują m.in. \texttt{banking}, \texttt{invoice}, \texttt{delivery}, \texttt{social}, \texttt{tax}, \texttt{education}, \texttt{health}.
+
+\subsection{Struktura pojedynczego rekordu}
+
+Z punktu widzenia eksperymentu pojedynczy rekord zbioru danych stanowi kompletny opis jednej wiadomości. Struktura ta została zaprojektowana w taki sposób, aby równocześnie wspierać analizę przez modele językowe, ocenę poprawności predykcji oraz późniejszą analizę jakościową wyników. W praktyce oznacza to rozdzielenie pól opisujących treść wiadomości od pól metadanych służących do ewaluacji.
+
+Tabela \ref{tab:struktura-danych} przedstawia znaczenie poszczególnych pól występujących w zbiorze \texttt{data/data.json}.
+
+\begin{table}[H]
+\centering
+\caption{Struktura pojedynczego rekordu w zbiorze danych}
+\label{tab:struktura-danych}
+\begin{tabular}{@{}p{3.0cm}p{3.0cm}p{7.5cm}@{}}
+\toprule
+\textbf{Pole} & \textbf{Typ danych} & \textbf{Opis} \\
+\midrule
+\texttt{id} & liczba całkowita & Unikalny identyfikator rekordu wykorzystywany do śledzenia próbki i analizy błędów. \\
+\texttt{title} & tekst & Temat wiadomości e-mail widoczny dla odbiorcy. \\
+\texttt{sender} & tekst & Pole nadawcy zawierające nazwę nadawcy oraz adres e-mail. \\
+\texttt{text} & tekst & Właściwa treść wiadomości poddawana analizie przez model. \\
+\texttt{ground\_truth} & etykieta & Etykieta referencyjna określająca, czy wiadomość jest phishingiem czy wiadomością legalną. \\
+\texttt{category} & tekst & Kategoria tematyczna wiadomości, np. \texttt{banking}, \texttt{tax}, \texttt{meeting}, \texttt{health}. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Takie ujęcie danych ma kilka zalet metodologicznych. Po pierwsze, umożliwia badanie modeli na pełnym kontekście wiadomości, a nie wyłącznie na samym korpusie tekstu. Po drugie, pozwala analizować błędy klasyfikacji nie tylko globalnie, ale również z rozbiciem na kategorie tematyczne. Po trzecie, obecność pola \texttt{ground\_truth} zapewnia jednoznaczny punkt odniesienia przy obliczaniu metryk jakości.
+
+\subsection{Charakterystyka treści i przykładowe wiadomości}
+
+Zbiór zawiera zarówno wiadomości phishingowe, jak i wiadomości legalne, przy czym obie grupy zostały zbudowane tak, aby odzwierciedlały realistyczne wzorce komunikacyjne. Wiadomości phishingowe często zawierają sygnały socjotechniczne, takie jak presja czasu, wezwanie do pilnego działania, prośba o potwierdzenie danych lub odwołanie do zewnętrznego panelu weryfikacyjnego. Z kolei wiadomości legalne wykorzystują neutralny, informacyjny styl komunikacji, odwołują się do znanych portali organizacji i nie wymagają podawania haseł ani kodów uwierzytelniających za pośrednictwem wiadomości e-mail.
+
+Istotną cechą zbioru jest obecność przykładów zawierających podejrzane domeny, literówki, homoglify oraz konstrukcje stylizowane na komunikację instytucjonalną. Dzięki temu dane testowe nie ograniczają się do prostych, sztucznie oczywistych przypadków, lecz uwzględniają również subtelniejsze próby podszywania się pod zaufane podmioty.
+
+Na rysunku \ref{fig:dataset-examples} przedstawiono dwa przykładowe rekordy: wiadomość phishingową oraz wiadomość legalną. Zostały one dobrane tak, aby pokazać kontrast pomiędzy komunikatem wykorzystującym presję i fałszywy panel weryfikacyjny a wiadomością administracyjną o neutralnym charakterze.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}[t]{0.48\textwidth}
+\fbox{%
+\parbox[t][0.40\textheight][t]{0.93\linewidth}{%
+\textbf{Przykład wiadomości phishingowej}\\[0.4em]
+\textbf{Temat:} Weryfikacja konta: e-Urząd Skarbowy -- zwrot podatku\\
+\textbf{Nadawca:} no-reply@podatki-refund-pl.com\\[0.6em]
+\textbf{Treść:}\\
+Dzień dobry Pawle,\\
+Wykryliśmy nietypową aktywność dla lokalizacji: Katowice.\\
+Aby uniknąć ograniczenia dostępu, wykonaj zwrot podatku.\\
+Czas na reakcję: 48 godzin.\\[0.4em]
+Panel weryfikacyjny:\\
+https://podatki-refund-pl.com/login\\[0.4em]
+Jeśli to błąd, potwierdź tożsamość oraz kod SMS/aplikacji w jednym kroku.}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\fbox{%
+\parbox[t][0.40\textheight][t]{0.93\linewidth}{%
+\textbf{Przykład wiadomości legalnej}\\[0.4em]
+\textbf{Temat:} Komunikat o przeglądzie instalacji [ID:6839416]\\
+\textbf{Nadawca:} zarzad@zielona12.pl\\[0.6em]
+\textbf{Treść:}\\
+Dzień dobry Katarzyno,\\
+Przesyłamy bieżącą informację dotyczącą komunikatu o przeglądzie instalacji.\\
+Materiały są dostępne w standardowym portalu i nie wymagają podawania hasła przez formularz e-mail.\\[0.4em]
+Ogłoszenia:\\
+https://zielona12.pl/ogloszenia\\[0.4em]
+W razie pytań odpowiedz bezpośrednio na tę wiadomość.}}
+\end{minipage}
+\caption{Przykładowe wiadomości ze zbioru danych: phishing i wiadomość legalna}
+\label{fig:dataset-examples}
+\end{figure}
+
+Przedstawione przykłady dobrze ilustrują różnicę pomiędzy obiema klasami. W próbce phishingowej widoczne są typowe mechanizmy wywierania presji, odwołanie do rzekomej weryfikacji oraz wykorzystanie domeny stylizowanej na instytucję publiczną. W wiadomości legalnej komunikat ma charakter informacyjny, wskazuje na standardowy kanał komunikacji i nie zawiera żądania przekazania danych uwierzytelniających. Tego rodzaju kontrast jest istotny z punktu widzenia oceny, czy model rozpoznaje nie tylko pojedyncze słowa-klucze, ale również szerszy kontekst komunikacyjny.
 
 \section{Procedura testowa}
 
@@ -401,7 +513,7 @@ W części wynikowej zestawiono modele, dla których dostępne są kompletne rap
     \item Gemini 2.5 Pro,
     \item Mistral 7B,
     \item Llama Cloud,
-    \item Bielik 11B v2.2 Instruct (wariant 4-bit, raport eksperymentalny).
+    \item Bielik 11B v2.2 Instruct.
 \end{itemize}
 
 % ===== ROZDZIAŁ 6: WYNIKI =====
