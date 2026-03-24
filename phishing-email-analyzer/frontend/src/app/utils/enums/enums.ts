@@ -5,3 +5,8 @@ export enum AiModelId {
   LLAMA_CLOUD = 'llama-cloud',
   BIELIK_2_4BIT = 'bielik-2-4bit',
 }
+
+export enum Theme {
+  light = 'light',
+  dark = 'dark',
+}

@@ -10,3 +10,5 @@ export const AI_MODEL_OPTIONS: AiModelOption[] = [
   { id: AiModelId.LLAMA_CLOUD, name: 'Llama Cloud' },
   { id: AiModelId.BIELIK_2_4BIT, name: 'Bielik 2 (4-bit)' },
 ];
+
+export const STORAGE_KEY = 'app-theme-mode';
