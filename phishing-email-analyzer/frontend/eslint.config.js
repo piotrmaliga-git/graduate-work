@@ -12,12 +12,20 @@ module.exports = defineConfig([
   {
     ignores: [
       '.angular/**',
+      '**/.angular/**',
+      '.stryker-tmp/**',
+      '**/.stryker-tmp/**',
       'coverage/**',
+      '**/coverage/**',
       'dist/**',
+      '**/dist/**',
       'node_modules/**',
+      '**/node_modules/**',
       'playwright-report/**',
+      '**/playwright-report/**',
       'tools/**',
       'test-results/**',
+      '**/test-results/**',
     ],
   },
   {
