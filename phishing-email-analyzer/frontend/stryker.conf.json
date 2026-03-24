@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/stryker-mutator/stryker-js/master/packages/core/schema/stryker-schema.json",
+  "testRunner": "command",
+  "coverageAnalysis": "off",
+  "commandRunner": {
+    "command": "npm run test:ci"
+  },
+  "mutate": [
+    "src/app/services/**/*.ts",
+    "src/app/utils/**/*.ts",
+    "!src/app/**/*.spec.ts",
+    "!src/app/tests/**/*.ts"
+  ],
+  "reporters": ["clear-text", "progress", "html"],
+  "htmlReporter": {
+    "fileName": "reports/mutation/index.html"
+  },
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": 50
+  },
+  "concurrency": 2,
+  "timeoutMS": 60000,
+  "timeoutFactor": 1.5
+}

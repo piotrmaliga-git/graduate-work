@@ -1,17 +1,23 @@
+# IDE and editor settings
+.vscode/
+
 # Dependencies
 node_modules/
 
 # Angular build/cache
 dist/
 .angular/
+
+# Cypress test
 coverage/
 
 # Playwright test
 playwright-report/
 test-results/
 
+# Stryker mutation testing
+.stryker-tmp/
+reports/mutation/
+
 # ESlint
 .eslintcache
-
-# IDE and editor settings
-.vscode/
