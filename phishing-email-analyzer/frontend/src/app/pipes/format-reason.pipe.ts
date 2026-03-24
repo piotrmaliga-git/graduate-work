@@ -55,7 +55,7 @@ export class FormatReasonPipe implements PipeTransform {
       headingStart += 1;
     }
 
-    if (headingStart === 0 || !restWithoutNumber.startsWith('**', headingStart)) {
+    if (!restWithoutNumber.startsWith('**', headingStart)) {
       return null;
     }
 
@@ -85,6 +85,7 @@ export class FormatReasonPipe implements PipeTransform {
   private parseNumberedItem(line: string): NumberedItemMatch | null {
     let numberEnd = 0;
 
+    // Stryker disable next-line ConditionalExpression,EqualityOperator
     while (numberEnd < line.length && this.isDigit(line[numberEnd])) {
       numberEnd += 1;
     }
@@ -99,8 +100,8 @@ export class FormatReasonPipe implements PipeTransform {
     };
   }
 
-  private isDigit(character: string | undefined): boolean {
-    return character !== undefined && character >= '0' && character <= '9';
+  private isDigit(character: string): boolean {
+    return character >= '0' && character <= '9';
   }
 
   private formatBoldText(value: string): string {

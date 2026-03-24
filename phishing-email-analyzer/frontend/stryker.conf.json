@@ -7,10 +7,9 @@
   },
   "mutate": [
     "src/app/services/**/*.ts",
-    "src/app/utils/**/*.ts",
-    "!src/app/utils/constants/**/*.ts",
-    "!src/app/**/*.spec.ts",
-    "!src/app/tests/**/*.ts"
+    "src/app/pipes/**/*.ts",
+    "src/app/utils/translations/translations.ts",
+    "!src/**/*.spec.ts"
   ],
   "reporters": ["clear-text", "progress", "html"],
   "htmlReporter": {

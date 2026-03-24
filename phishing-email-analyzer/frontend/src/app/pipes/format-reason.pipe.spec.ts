@@ -144,6 +144,88 @@ describe('FormatReasonPipe', () => {
       expect(html).not.toContain('<div class="mt-3 mb-1">');
       expect(html).not.toContain('<span class="font-bold text-primary">2.</span>');
     });
+
+    it('should not treat a numbered item as a heading when there is no space between the dot and bold marker', () => {
+      const input = '1.**Bold**';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).not.toContain('<div class="mt-3 mb-1">');
+      expect(html).toBe(
+        '<span class="font-bold text-primary">1.</span><strong class="font-semibold text-gray-900">Bold</strong>'
+      );
+    });
+
+    it('should not treat a numbered item as a heading when bold does not start at the first non-space position', () => {
+      const input = '1. abc**def**';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).not.toContain('<div class="mt-3 mb-1">');
+      expect(html).toBe(
+        '<span class="font-bold text-primary">1.</span> abc<strong class="font-semibold text-gray-900">def</strong>'
+      );
+    });
+
+    it('should not treat a numbered item as a heading when the bold marker is never closed', () => {
+      const input = '1. **Unclosed';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).not.toContain('<div class="mt-3 mb-1">');
+      expect(html).toBe('<span class="font-bold text-primary">1.</span> **Unclosed');
+    });
+
+    it('should not treat a numbered item as a heading when the heading text is empty', () => {
+      const input = '1. ****';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).not.toContain('<div class="mt-3 mb-1">');
+      expect(html).toBe('<span class="font-bold text-primary">1.</span> ****');
+    });
+
+    it('should not treat a numbered item as a heading when the heading text contains an asterisk', () => {
+      const input = '1. **A*B**';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).not.toContain('<div class="mt-3 mb-1">');
+      expect(html).toBe(
+        '<span class="font-bold text-primary">1.</span> <strong class="font-semibold text-gray-900">A*B</strong>'
+      );
+    });
+
+    it('should format a numbered item whose number is 9', () => {
+      const input = '9. item';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).toContain('<span class="font-bold text-primary">9.</span> item');
+    });
+
+    it('should format a numbered item whose number contains the digit 0', () => {
+      const input = '10. item';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).toContain('<span class="font-bold text-primary">10.</span> item');
+    });
+
+    it('should not style a line as a numbered item when digits are not followed by a dot', () => {
+      const result = pipe.transform('1X');
+      expect(getHtmlString(result)).toBe('1X');
+    });
+
+    it('should not style a line as a numbered item when it starts with a dot but no leading digit', () => {
+      const result = pipe.transform('.item');
+      expect(getHtmlString(result)).toBe('.item');
+    });
+
+    it('should not style a line as a numbered item when it starts with a non-digit character followed by a dot', () => {
+      const result = pipe.transform(':. item');
+      expect(getHtmlString(result)).toBe(':. item');
+    });
   });
 
   describe('line break conversion', () => {
