@@ -31,6 +31,10 @@ describe('InfoComponent', () => {
     expect(cardText).toContain('Available Models');
     expect(cardText).toContain('GPT-4.1:');
     expect(cardText).toContain('Latest OpenAI model');
+    expect(cardText).toContain("Google's latest LLM with advanced understanding");
+    expect(cardText).toContain('Open-source model from Mistral AI with 7 billion parameters');
+    expect(cardText).toContain("Meta's LLM accessed via cloud API");
+    expect(cardText).toContain('Polish language model running locally in 4-bit quantization mode');
     expect(cardText).toContain('Bielik 2 (4-bit)');
   });
 });

@@ -165,6 +165,17 @@ describe('HeaderComponent behavior', () => {
     expect(component.isPolishLocale()).toBe(true);
   });
 
+  it('should expose english switch labels when current locale is polish', async () => {
+    const { fixture } = await createFixture({ lang: 'pl-PL' });
+    const button = fixture.nativeElement.querySelector(
+      '[data-testid="language-toggle"]'
+    ) as HTMLButtonElement;
+
+    expect(button.textContent?.trim()).toBe('EN');
+    expect(button.getAttribute('aria-label')).toBe('Switch to English');
+    expect(button.getAttribute('title')).toBe('Switch to English');
+  });
+
   it('should redirect to /pl prefix when current locale is not polish', async () => {
     const { fixture, assign, localeServiceMock } = await createFixture({
       pathname: '/en/offers',

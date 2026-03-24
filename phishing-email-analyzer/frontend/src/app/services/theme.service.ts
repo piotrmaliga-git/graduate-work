@@ -1,7 +1,7 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
-
-const STORAGE_KEY = 'app-theme-mode';
+import { Theme } from '../utils/enums/enums';
+import { STORAGE_KEY } from '../utils/constants/constans';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
@@ -9,11 +9,10 @@ export class ThemeService {
   private readonly platformId = inject(PLATFORM_ID);
   private readonly isBrowser = isPlatformBrowser(this.platformId);
 
-  readonly isDark = signal<boolean>(false);
+  readonly isDark = signal<boolean>(this.resolveInitialMode());
 
   constructor() {
-    const initialMode = this.resolveInitialMode();
-    this.setDarkMode(initialMode, false);
+    this.document.documentElement.classList.toggle('app-dark', this.isDark());
   }
 
   toggleDarkMode(enabled: boolean) {
@@ -25,7 +24,8 @@ export class ThemeService {
     this.document.documentElement.classList.toggle('app-dark', enabled);
 
     if (persist && this.isBrowser) {
-      localStorage.setItem(STORAGE_KEY, enabled ? 'dark' : 'light');
+      const themeToSave: Theme = enabled ? Theme.dark : Theme.light;
+      localStorage.setItem(STORAGE_KEY, themeToSave);
     }
   }
 
@@ -34,12 +34,12 @@ export class ThemeService {
       return false;
     }
 
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === 'dark') {
+    const saved = localStorage.getItem(STORAGE_KEY) as Theme | null;
+    if (saved === Theme.dark) {
       return true;
     }
 
-    if (saved === 'light') {
+    if (saved === Theme.light) {
       return false;
     }
 

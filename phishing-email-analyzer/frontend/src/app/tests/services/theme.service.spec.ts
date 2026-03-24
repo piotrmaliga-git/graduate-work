@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { ThemeService } from '../../services/theme.service';
+import { Theme } from 'utils/enums/enums';
 
 describe('ThemeService', () => {
   const storageKey = 'app-theme-mode';
@@ -44,7 +45,7 @@ describe('ThemeService', () => {
   });
 
   it('should initialize dark mode from saved storage value', () => {
-    localStorage.setItem(storageKey, 'dark');
+    localStorage.setItem(storageKey, Theme.dark);
     const setItemSpy = vi.spyOn(localStorage, 'setItem');
 
     const { service, classListToggle } = createService();
@@ -55,7 +56,7 @@ describe('ThemeService', () => {
   });
 
   it('should initialize light mode from saved storage value', () => {
-    localStorage.setItem(storageKey, 'light');
+    localStorage.setItem(storageKey, Theme.light);
 
     const { service, classListToggle } = createService();
 
@@ -120,7 +121,7 @@ describe('ThemeService', () => {
 
     expect(service.isDark()).toBe(true);
     expect(classListToggle).toHaveBeenLastCalledWith('app-dark', true);
-    expect(setItemSpy).toHaveBeenCalledWith(storageKey, 'dark');
+    expect(setItemSpy).toHaveBeenCalledWith(storageKey, Theme.dark);
   });
 
   it('should persist light mode when toggled in browser', () => {
@@ -131,7 +132,7 @@ describe('ThemeService', () => {
 
     expect(service.isDark()).toBe(false);
     expect(classListToggle).toHaveBeenLastCalledWith('app-dark', false);
-    expect(setItemSpy).toHaveBeenCalledWith(storageKey, 'light');
+    expect(setItemSpy).toHaveBeenCalledWith(storageKey, Theme.light);
   });
 
   it('should not persist mode on server platform', () => {
@@ -142,5 +143,44 @@ describe('ThemeService', () => {
 
     expect(service.isDark()).toBe(true);
     expect(setItemSpy).not.toHaveBeenCalled();
+  });
+
+  it('should initialize to light mode on server platform even when matchMedia prefers dark', () => {
+    const originalMatchMedia = globalThis.matchMedia;
+    Object.defineProperty(globalThis, 'matchMedia', {
+      value: vi.fn().mockReturnValue({ matches: true } as MediaQueryList),
+      configurable: true,
+      writable: true,
+    });
+
+    const { service } = createService({ platformId: 'server' });
+
+    expect(service.isDark()).toBe(false);
+
+    Object.defineProperty(globalThis, 'matchMedia', {
+      value: originalMatchMedia,
+      configurable: true,
+      writable: true,
+    });
+  });
+
+  it('should prefer stored light theme over matchMedia dark preference', () => {
+    localStorage.setItem(storageKey, Theme.light);
+    const originalMatchMedia = globalThis.matchMedia;
+    Object.defineProperty(globalThis, 'matchMedia', {
+      value: vi.fn().mockReturnValue({ matches: true } as MediaQueryList),
+      configurable: true,
+      writable: true,
+    });
+
+    const { service } = createService();
+
+    expect(service.isDark()).toBe(false);
+
+    Object.defineProperty(globalThis, 'matchMedia', {
+      value: originalMatchMedia,
+      configurable: true,
+      writable: true,
+    });
   });
 });

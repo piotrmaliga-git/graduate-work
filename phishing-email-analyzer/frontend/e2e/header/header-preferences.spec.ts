@@ -1,3 +1,4 @@
+import { Theme } from './../../src/app/utils/enums/enums';
 import { expect, test } from '@playwright/test';
 
 test.describe('Header preferences e2e', () => {
@@ -44,7 +45,7 @@ test.describe('Header preferences e2e', () => {
       )
       .toEqual({
         isDark: !initiallyDark,
-        stored: initiallyDark ? 'light' : 'dark',
+        stored: initiallyDark ? Theme.light : Theme.dark,
       });
   });
 });
