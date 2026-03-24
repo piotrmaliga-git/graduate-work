@@ -8,6 +8,7 @@
   "mutate": [
     "src/app/services/**/*.ts",
     "src/app/utils/**/*.ts",
+    "!src/app/utils/constants/**/*.ts",
     "!src/app/**/*.spec.ts",
     "!src/app/tests/**/*.ts"
   ],
@@ -16,9 +17,9 @@
     "fileName": "reports/mutation/index.html"
   },
   "thresholds": {
-    "high": 80,
-    "low": 60,
-    "break": 50
+    "high": 95,
+    "low": 80,
+    "break": 95
   },
   "concurrency": 2,
   "timeoutMS": 60000,
