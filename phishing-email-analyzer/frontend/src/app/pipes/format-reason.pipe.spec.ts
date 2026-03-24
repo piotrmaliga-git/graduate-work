@@ -68,40 +68,81 @@ describe('FormatReasonPipe', () => {
   });
 
   describe('numbered list formatting', () => {
-    it('should convert bold text in numbered items', () => {
+    it('should wrap numbered bold headings in a block and keep the description', () => {
       const input = '1. **Header**: Description';
       const result = pipe.transform(input);
       const html = getHtmlString(result);
 
-      // The div wrapping regex never matches because ** is already replaced by the time it runs
-      // So we just get numbered item styling + bold text
-      expect(html).toContain('<span class="font-bold text-primary">1.</span>');
-      expect(html).toContain('<strong class="font-semibold text-gray-900">Header</strong>');
-      // Div wrapping does NOT happen (** is gone before that regex runs)
-      expect(html).not.toContain('<div class="mt-3 mb-1">');
+      expect(html).toBe(
+        '<div class="mt-3 mb-1"><span class="font-bold text-primary">1.</span> <strong class="font-semibold text-gray-900">Header</strong>:</div> Description'
+      );
     });
 
-    it('should style first numbered item at start of text', () => {
+    it('should style every numbered item at the start of a line', () => {
       const input = '1. Regular item\n2. Another item';
       const result = pipe.transform(input);
       const html = getHtmlString(result);
 
-      // Only the first item gets styled because after \n-><br> conversion,
-      // subsequent items are no longer at regex line start (^)
       expect(html).toContain('<span class="font-bold text-primary">1.</span>');
-      // Second item is NOT styled due to order of replacements
-      expect(html).toContain('2. Another item');
+      expect(html).toContain('<span class="font-bold text-primary">2.</span>');
     });
 
-    it('should only style items at the start of the string', () => {
-      const input = '1. First\n2. Second\n3. Third';
+    it('should support multi-digit numbered items', () => {
+      const input = '12. Twelfth item';
       const result = pipe.transform(input);
       const html = getHtmlString(result);
 
-      // Only first item is styled (at string start)
-      expect(html).toContain('<span class="font-bold text-primary">1.</span>');
-      // Rest are plain text after <br> tags
-      expect(html).toContain('<br>2. Second<br>3. Third');
+      expect(html).toContain('<span class="font-bold text-primary">12.</span> Twelfth item');
+    });
+
+    it('should support multi-digit numbered headings', () => {
+      const input = '12. **Header**: Description';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).toBe(
+        '<div class="mt-3 mb-1"><span class="font-bold text-primary">12.</span> <strong class="font-semibold text-gray-900">Header</strong>:</div> Description'
+      );
+    });
+
+    it('should accept more than one space after the numbered heading marker', () => {
+      const input = '3.  **Header**: Description';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).toBe(
+        '<div class="mt-3 mb-1"><span class="font-bold text-primary">3.</span> <strong class="font-semibold text-gray-900">Header</strong>:</div> Description'
+      );
+    });
+
+    it('should wrap numbered headings even when the bold heading has no colon', () => {
+      const input = '4. **Header** Description';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).toBe(
+        '<div class="mt-3 mb-1"><span class="font-bold text-primary">4.</span> <strong class="font-semibold text-gray-900">Header</strong></div> Description'
+      );
+    });
+
+    it('should keep multi-digit headings as plain numbered items when the heading marker is malformed', () => {
+      const input = '12. **Header*: Description';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).toBe('<span class="font-bold text-primary">12.</span> **Header*: Description');
+    });
+
+    it('should not style numbers that are not at the start of a line', () => {
+      const input = 'Prefix 2. **Header** should stay inline';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).toContain(
+        'Prefix 2. <strong class="font-semibold text-gray-900">Header</strong> should stay inline'
+      );
+      expect(html).not.toContain('<div class="mt-3 mb-1">');
+      expect(html).not.toContain('<span class="font-bold text-primary">2.</span>');
     });
   });
 
@@ -129,14 +170,17 @@ describe('FormatReasonPipe', () => {
       const result = pipe.transform(input);
       const html = getHtmlString(result);
 
+      expect(html).toContain(
+        '<div class="mt-3 mb-1"><span class="font-bold text-primary">1.</span> <strong class="font-semibold text-gray-900">Urgency</strong>:</div> Creates pressure'
+      );
+      expect(html).toContain(
+        '<div class="mt-3 mb-1"><span class="font-bold text-primary">2.</span> <strong class="font-semibold text-gray-900">Suspicious Link</strong>:</div> Not legitimate'
+      );
       expect(html).toContain('<strong class="font-semibold text-gray-900">Urgency</strong>');
       expect(html).toContain(
         '<strong class="font-semibold text-gray-900">Suspicious Link</strong>'
       );
-      // Only first numbered item gets styled (at string start before <br> conversion)
-      expect(html).toContain('<span class="font-bold text-primary">1.</span>');
-      // Second item is NOT styled (comes after <br>)
-      expect(html).toContain('<br>2. <strong');
+      expect(html).toContain('<br>');
     });
 
     it('should handle real-world phishing analysis text', () => {
@@ -161,10 +205,25 @@ All these factors indicate phishing.`;
         '<strong class="font-semibold text-gray-900">Request for Sensitive Information</strong>'
       );
       expect(html).toContain('<br>');
-      // Items with bold headers should be wrapped in divs
-      expect(html).toContain('1. <strong');
-      expect(html).toContain('2. <strong');
-      expect(html).toContain('3. <strong');
+      expect(html).toContain(
+        '<div class="mt-3 mb-1"><span class="font-bold text-primary">1.</span> <strong class="font-semibold text-gray-900">Urgency and Threats</strong>:</div> The message creates urgency.'
+      );
+      expect(html).toContain(
+        '<div class="mt-3 mb-1"><span class="font-bold text-primary">2.</span> <strong class="font-semibold text-gray-900">Suspicious Link</strong>:</div> The provided link is not legitimate.'
+      );
+      expect(html).toContain(
+        '<div class="mt-3 mb-1"><span class="font-bold text-primary">3.</span> <strong class="font-semibold text-gray-900">Request for Sensitive Information</strong>:</div> Asks for credentials.'
+      );
+    });
+
+    it('should format additional bold text after a numbered heading', () => {
+      const input = '3. **Evidence**: Contains **multiple** warning signs';
+      const result = pipe.transform(input);
+      const html = getHtmlString(result);
+
+      expect(html).toContain(
+        '<div class="mt-3 mb-1"><span class="font-bold text-primary">3.</span> <strong class="font-semibold text-gray-900">Evidence</strong>:</div> Contains <strong class="font-semibold text-gray-900">multiple</strong> warning signs'
+      );
     });
   });
 

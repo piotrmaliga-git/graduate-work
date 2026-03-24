@@ -1,6 +1,6 @@
-import { routes } from '../../routes/app.routes';
-import { HomePageComponent } from '../../pages/home/home.component';
-import { NotFoundPageComponent } from '../../pages/not-found/not-found.component';
+import { routes } from './app.routes';
+import { HomePageComponent } from '../pages/home/home.component';
+import { NotFoundPageComponent } from '../pages/not-found/not-found.component';
 
 describe('App Router', () => {
   it('should create routes configuration', () => {

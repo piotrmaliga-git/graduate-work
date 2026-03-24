@@ -1,7 +1,7 @@
 import { type DebugElement } from '@angular/core';
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { InfoComponent } from '../../components/info/info.component';
+import { InfoComponent } from './info.component';
 
 describe('InfoComponent', () => {
   let fixture: ComponentFixture<InfoComponent>;

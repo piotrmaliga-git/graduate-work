@@ -1,5 +1,5 @@
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
-import { FooterComponent } from '../../components/footer/footer.component';
+import { FooterComponent } from './footer.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 

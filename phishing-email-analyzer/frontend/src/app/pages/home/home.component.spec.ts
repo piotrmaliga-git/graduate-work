@@ -2,7 +2,7 @@ import { of, throwError } from 'rxjs';
 import { type DebugElement } from '@angular/core';
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { HomePageComponent } from '../../pages/home/home.component';
+import { HomePageComponent } from './home.component';
 import { ApiService } from '../../services/api.service';
 import { AnalyzerComponent } from '../../components/analyzer/analyzer.component';
 import { AiModelId } from '../../utils/constants/constans';

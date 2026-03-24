@@ -1,8 +1,8 @@
 import { DOCUMENT } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { ThemeService } from '../../services/theme.service';
-import { Theme } from 'utils/enums/enums';
+import { ThemeService } from './theme.service';
+import { Theme } from '../utils/enums/enums';
 
 describe('ThemeService', () => {
   const storageKey = 'app-theme-mode';

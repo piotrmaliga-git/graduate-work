@@ -1,7 +1,7 @@
 import { type DebugElement } from '@angular/core';
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { ResultsComponent } from '../../components/results/results.component';
+import { ResultsComponent } from './results.component';
 import { type AnalysisResult } from '../../utils/interfaces/interfaces';
 
 describe('ResultsComponent', () => {

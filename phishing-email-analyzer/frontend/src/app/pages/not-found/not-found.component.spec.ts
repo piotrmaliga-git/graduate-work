@@ -2,7 +2,7 @@ import { type DebugElement } from '@angular/core';
 import { type ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
-import { NotFoundPageComponent } from '../../pages/not-found/not-found.component';
+import { NotFoundPageComponent } from './not-found.component';
 
 describe('NotFoundPageComponent', () => {
   let fixture: ComponentFixture<NotFoundPageComponent>;
