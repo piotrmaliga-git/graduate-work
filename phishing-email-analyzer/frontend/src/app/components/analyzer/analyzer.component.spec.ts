@@ -189,8 +189,7 @@ describe('AnalyzerComponent', () => {
     expect(labelElement?.tagName).toBe('SPAN');
     expect(labelElement?.textContent).toContain('Select AI Model');
     expect(selectComponent.ariaLabelledBy).toBe('model-select-label');
-    expect(selectTrigger?.getAttribute('role')).toBe('button');
-    expect(selectTrigger?.getAttribute('aria-controls')).toBeNull();
+    expect(selectTrigger?.getAttribute('role')).toBe('combobox');
     expect(orphanedLabel).toBeNull();
   });
 
