@@ -111,7 +111,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: E2E visual tests
-        run: npm run e2e:visual -- --grep "@visual"
+        run: npm run e2e:visual
 
   e2e-visual-tests-rtl:
     name: E2E visual tests RTL
@@ -139,7 +139,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: E2E visual tests RTL
-        run: npm run e2e:visual-rtl -- --grep "@visual"
+        run: npm run e2e:visual-rtl
 
   mutation-tests:
     name: Mutation tests
