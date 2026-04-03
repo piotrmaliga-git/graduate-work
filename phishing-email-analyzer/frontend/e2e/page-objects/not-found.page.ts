@@ -10,7 +10,7 @@ export class NotFoundPage {
   }
 
   private get message(): Locator {
-    return this.page.getByText('Page not found.');
+    return this.page.getByText('Page not found');
   }
 
   private get goHomeLink(): Locator {
