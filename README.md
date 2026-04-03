@@ -8,6 +8,72 @@ This repository combines two closely related parts of a master's thesis project:
 
 The main engineering work lives in the frontend and backend application. The remaining folders support research, reporting, and writing.
 
+## Table of Contents
+
+- [Master's work](#masters-work)
+  - [Comparative analysis of the effectiveness of language models in detecting phishing messages](#comparative-analysis-of-the-effectiveness-of-language-models-in-detecting-phishing-messages)
+  - [Table of Contents](#table-of-contents)
+  - [Repository Structure](#repository-structure)
+  - [Main Application](#main-application)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+  - [Supporting Folders](#supporting-folders)
+  - [Screenshots](#screenshots)
+    - [Home Page](#home-page)
+      - [Empty form](#empty-form)
+      - [Filled form](#filled-form)
+      - [Loading state](#loading-state)
+    - [Analysis Results](#analysis-results)
+      - [Legit result](#legit-result)
+      - [Phishing result](#phishing-result)
+      - [Error state](#error-state)
+    - [Not Found Page](#not-found-page)
+  - [Requirements](#requirements)
+  - [Quick Start](#quick-start)
+    - [1. Frontend setup](#1-frontend-setup)
+    - [2. Backend setup](#2-backend-setup)
+  - [Environment Variables](#environment-variables)
+  - [API Contract](#api-contract)
+    - [`GET /`](#get-)
+    - [`POST /analyze`](#post-analyze)
+  - [Development Commands](#development-commands)
+    - [Frontend](#frontend-1)
+    - [Backend](#backend-1)
+  - [Testing and Quality](#testing-and-quality)
+  - [Dataset and Evaluation](#dataset-and-evaluation)
+  - [Notes and Limitations](#notes-and-limitations)
+  - [Thesis Context](#thesis-context)
+  - [Comparative Analysis of Language Model Effectiveness in Detecting Phishing Emails](#comparative-analysis-of-language-model-effectiveness-in-detecting-phishing-emails)
+  - [Repository Overview](#repository-overview)
+  - [Project Structure](#project-structure)
+  - [Requirements](#requirements-1)
+  - [Quick Start](#quick-start-1)
+    - [1. Backend](#1-backend)
+    - [2. Frontend](#2-frontend)
+  - [Backend Configuration](#backend-configuration)
+  - [Architecture](#architecture)
+  - [API](#api)
+    - [`GET /`](#get--1)
+    - [`POST /analyze`](#post-analyze-1)
+  - [Models](#models)
+  - [Frontend: Run and Quality](#frontend-run-and-quality)
+    - [Run and Build](#run-and-build)
+    - [Translations](#translations)
+    - [Tests](#tests)
+    - [Code Quality](#code-quality)
+    - [Playwright E2E](#playwright-e2e)
+    - [Visual Snapshot Tests](#visual-snapshot-tests)
+    - [Mutation Testing](#mutation-testing)
+  - [Backend Helper Scripts](#backend-helper-scripts)
+    - [Model Comparison](#model-comparison)
+    - [Shuffling and Renumbering Data](#shuffling-and-renumbering-data)
+  - [CI and Git Hooks](#ci-and-git-hooks)
+  - [Data and Reports](#data-and-reports)
+    - [Input Data Format](#input-data-format)
+    - [Reports](#reports)
+  - [Thesis Materials](#thesis-materials)
+  - [Current Limitations](#current-limitations)
+
 ## Repository Structure
 
 ```text
@@ -311,77 +377,6 @@ This repository contains a complete research and application project focused on 
 
 The project can be used both as a local phishing-email analysis tool and as an environment for running comparative experiments on a prepared dataset.
 
-## Table of Contents
-
-- [Master's work](#masters-work)
-  - [Comparative analysis of the effectiveness of language models in detecting phishing messages](#comparative-analysis-of-the-effectiveness-of-language-models-in-detecting-phishing-messages)
-  - [Repository Structure](#repository-structure)
-  - [Main Application](#main-application)
-    - [Frontend](#frontend)
-    - [Backend](#backend)
-  - [Supporting Folders](#supporting-folders)
-  - [Screenshots](#screenshots)
-    - [Home Page](#home-page)
-      - [Empty form](#empty-form)
-      - [Filled form](#filled-form)
-      - [Loading state](#loading-state)
-    - [Analysis Results](#analysis-results)
-      - [Legit result](#legit-result)
-      - [Phishing result](#phishing-result)
-      - [Error state](#error-state)
-    - [Not Found Page](#not-found-page)
-  - [Requirements](#requirements)
-  - [Quick Start](#quick-start)
-    - [1. Frontend setup](#1-frontend-setup)
-    - [2. Backend setup](#2-backend-setup)
-  - [Environment Variables](#environment-variables)
-  - [API Contract](#api-contract)
-    - [`GET /`](#get-)
-    - [`POST /analyze`](#post-analyze)
-  - [Development Commands](#development-commands)
-    - [Frontend](#frontend-1)
-    - [Backend](#backend-1)
-  - [Testing and Quality](#testing-and-quality)
-  - [Dataset and Evaluation](#dataset-and-evaluation)
-  - [Notes and Limitations](#notes-and-limitations)
-  - [Thesis Context](#thesis-context)
-  - [Comparative Analysis of Language Model Effectiveness in Detecting Phishing Emails](#comparative-analysis-of-language-model-effectiveness-in-detecting-phishing-emails)
-  - [Table of Contents](#table-of-contents)
-  - [Repository Overview](#repository-overview)
-  - [Project Structure](#project-structure)
-  - [Screenshots](#screenshots-1)
-    - [Home Page - Analysis Form](#home-page---analysis-form)
-    - [Analysis Results](#analysis-results-1)
-    - [404 Page](#404-page)
-    - [RTL Tests](#rtl-tests)
-  - [Requirements](#requirements-1)
-  - [Quick Start](#quick-start-1)
-    - [1. Backend](#1-backend)
-    - [2. Frontend](#2-frontend)
-  - [Backend Configuration](#backend-configuration)
-  - [Architecture](#architecture)
-  - [API](#api)
-    - [`GET /`](#get--1)
-    - [`POST /analyze`](#post-analyze-1)
-  - [Models](#models)
-  - [Frontend: Run and Quality](#frontend-run-and-quality)
-    - [Run and Build](#run-and-build)
-    - [Translations](#translations)
-    - [Tests](#tests)
-    - [Code Quality](#code-quality)
-    - [Playwright E2E](#playwright-e2e)
-    - [Visual Snapshot Tests](#visual-snapshot-tests)
-    - [Mutation Testing](#mutation-testing)
-  - [Backend Helper Scripts](#backend-helper-scripts)
-    - [Model Comparison](#model-comparison)
-    - [Shuffling and Renumbering Data](#shuffling-and-renumbering-data)
-  - [CI and Git Hooks](#ci-and-git-hooks)
-  - [Data and Reports](#data-and-reports)
-    - [Input Data Format](#input-data-format)
-    - [Reports](#reports)
-  - [Thesis Materials](#thesis-materials)
-  - [Current Limitations](#current-limitations)
-
 ## Repository Overview
 
 The main application in this repository is Phishing Email Analyzer:
@@ -417,38 +412,6 @@ The main application in this repository is Phishing Email Analyzer:
 |-- reports/                          # JSON reports from model runs
 `-- README.md
 ```
-
-## Screenshots
-
-The screenshots below come from Playwright visual tests. Snapshots are stored in `phishing-email-analyzer/frontend/e2e-snapshots/`.
-
-### Home Page - Analysis Form
-
-| Light mode | Dark mode |
-|---|---|
-| ![Empty home page - light mode](phishing-email-analyzer/frontend/e2e-snapshots/visual/home-page/light/home-empty.png) | ![Empty home page - dark mode](phishing-email-analyzer/frontend/e2e-snapshots/visual/home-page/dark/home-empty.png) |
-| ![Filled form - light mode](phishing-email-analyzer/frontend/e2e-snapshots/visual/home-page/light/home-form-filled.png) | |
-| ![Loading state - light mode](phishing-email-analyzer/frontend/e2e-snapshots/visual/home-page/light/home-loading.png) | |
-
-### Analysis Results
-
-| Light mode | Dark mode |
-|---|---|
-| ![Phishing result - light mode](phishing-email-analyzer/frontend/e2e-snapshots/visual/analyzer-results/light/result-phishing.png) | ![Phishing result - dark mode](phishing-email-analyzer/frontend/e2e-snapshots/visual/analyzer-results/dark/result-phishing.png) |
-| ![Legit result - light mode](phishing-email-analyzer/frontend/e2e-snapshots/visual/analyzer-results/light/result-safe.png) | |
-| ![Error result - light mode](phishing-email-analyzer/frontend/e2e-snapshots/visual/analyzer-results/light/result-error.png) | |
-
-### 404 Page
-
-| Light mode |
-|---|
-| ![404 page - light mode](phishing-email-analyzer/frontend/e2e-snapshots/visual/not-found/light/not-found.png) |
-
-### RTL Tests
-
-| Analysis form - light mode | Results - light mode | 404 page - light mode |
-|---|---|---|
-| ![RTL form - light mode](phishing-email-analyzer/frontend/e2e-snapshots/RTL/analyzer/light/analyzer-empty-state.png) | ![RTL results - light mode](phishing-email-analyzer/frontend/e2e-snapshots/RTL/results/light/result-phishing.png) | ![RTL 404 page - light mode](phishing-email-analyzer/frontend/e2e-snapshots/RTL/not-found/light/not-found.png) |
 
 ## Requirements
 
