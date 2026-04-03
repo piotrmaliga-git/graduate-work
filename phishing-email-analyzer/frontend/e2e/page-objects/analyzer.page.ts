@@ -31,7 +31,7 @@ export class AnalyzerPage {
   }
 
   private get modelSelect(): Locator {
-    return this.page.getByRole('combobox', { name: /GPT-4.1/i });
+    return this.page.getByRole('combobox', { name: /Select AI Model/i });
   }
 
   private get resultsCard(): Locator {
