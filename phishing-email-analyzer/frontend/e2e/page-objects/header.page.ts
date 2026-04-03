@@ -40,6 +40,8 @@ export class HeaderPage {
     await expect(this.themeToggle).toBeVisible();
     await expect(this.themeToggle).toBeEnabled();
     await this.themeToggle.click();
+    // Wait a brief moment for Angular change detection and DOM updates
+    await this.page.waitForTimeout(100);
   }
 
   async getThemeState() {
