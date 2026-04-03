@@ -1,22 +1,27 @@
-import { expect, test } from '@playwright/test';
-import { setEmailText } from '../helpers/analyzer-form.helper';
+import { test } from '@playwright/test';
+import { AnalyzerPage } from '../page-objects/analyzer.page';
 
 test.describe('Analyzer core flow e2e', () => {
   test('clear button resets form fields', async ({ page }) => {
-    await page.goto('/');
+    const analyzerPage = new AnalyzerPage(page);
+    await analyzerPage.gotoHome();
+    await analyzerPage.fillForm(
+      'sender@example.com',
+      'Suspicious subject',
+      'Suspicious email body for testing clear action.'
+    );
 
-    await page.locator('[data-testid="sender-input"]').fill('sender@example.com');
-    await setEmailText(page, 'Suspicious email body for testing clear action.');
+    await analyzerPage.clickClear();
 
-    await page.getByRole('button', { name: /Clear/i }).click();
-
-    await expect(page.locator('#sender-input')).toHaveValue('');
-    await expect(page.locator('#email-input')).toHaveValue('');
-    await expect(page.getByRole('button', { name: /Analyze/i })).toBeDisabled();
+    await analyzerPage.expectSenderValue('');
+    await analyzerPage.expectEmailValue('');
+    await analyzerPage.expectAnalyzeDisabled();
   });
 
   test('analyzes email and renders result', async ({ page }) => {
-    await page.route('http://localhost:8000/analyze', async (route) => {
+    const analyzerPage = new AnalyzerPage(page);
+
+    await analyzerPage.stubAnalyzeRequest(async (route) => {
       await route.fulfill({
         status: 200,
         contentType: 'application/json',
@@ -31,32 +36,26 @@ test.describe('Analyzer core flow e2e', () => {
       });
     });
 
-    await page.goto('/');
+    await analyzerPage.gotoHome();
+    await analyzerPage.fillForm(
+      'attacker@example.com',
+      'Urgent security alert',
+      'Urgent: click this link now and re-enter your company password.'
+    );
 
-    await page.locator('[data-testid="sender-input"]').fill('attacker@example.com');
-    await setEmailText(page, 'Urgent: click this link now and re-enter your company password.');
+    await analyzerPage.clickAnalyze();
 
-    await page.getByRole('button', { name: /Analyze/i }).click();
-
-    await expect(page.getByText('Analysis Result')).toBeVisible();
-    await expect(
-      page
-        .locator('.result-row')
-        .filter({ hasText: /^Model/ })
-        .locator('strong')
-    ).toHaveText('gpt-4.1');
-    await expect(
-      page
-        .locator('.result-row')
-        .filter({ hasText: /^Sender/ })
-        .locator('strong')
-    ).toHaveText('attacker@example.com');
-    await expect(page.getByText('PHISHING', { exact: true })).toBeVisible();
-    await expect(page.getByText('Contains urgent credential reset request')).toBeVisible();
+    await analyzerPage.expectAnalysisResultVisible();
+    await analyzerPage.expectResultRowValue(/^Model/, 'gpt-4.1');
+    await analyzerPage.expectResultRowValue(/^Sender/, 'attacker@example.com');
+    await analyzerPage.expectTextVisible('PHISHING');
+    await analyzerPage.expectBackendErrorVisible('Contains urgent credential reset request');
   });
 
   test('shows backend error message when analyze fails', async ({ page }) => {
-    await page.route('http://localhost:8000/analyze', async (route) => {
+    const analyzerPage = new AnalyzerPage(page);
+
+    await analyzerPage.stubAnalyzeRequest(async (route) => {
       await route.fulfill({
         status: 500,
         contentType: 'application/json',
@@ -64,12 +63,11 @@ test.describe('Analyzer core flow e2e', () => {
       });
     });
 
-    await page.goto('/');
+    await analyzerPage.gotoHome();
+    await analyzerPage.fillEmailOnly('Test email body');
+    await analyzerPage.clickAnalyze();
 
-    await setEmailText(page, 'Test email body');
-    await page.getByRole('button', { name: /Analyze/i }).click();
-
-    await expect(page.getByText('Backend unavailable for test')).toBeVisible();
-    await expect(page.locator('.results-wrapper')).toHaveCount(0);
+    await analyzerPage.expectBackendErrorVisible('Backend unavailable for test');
+    await analyzerPage.expectResultsHidden();
   });
 });

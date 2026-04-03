@@ -1,11 +1,12 @@
 import { expect, test } from '@playwright/test';
-import { setEmailText } from '../helpers/analyzer-form.helper';
+import { AnalyzerPage } from '../page-objects/analyzer.page';
 
 test.describe('Analyzer request behavior e2e', () => {
   test('sends expected analyze payload', async ({ page }) => {
+    const analyzerPage = new AnalyzerPage(page);
     let receivedPayload: Record<string, unknown> | null = null;
 
-    await page.route('http://localhost:8000/analyze', async (route) => {
+    await analyzerPage.stubAnalyzeRequest(async (route) => {
       receivedPayload = route.request().postDataJSON() as Record<string, unknown>;
 
       await route.fulfill({
@@ -23,14 +24,14 @@ test.describe('Analyzer request behavior e2e', () => {
       });
     });
 
-    await page.goto('/');
-
-    await page.locator('[data-testid="sender-input"]').fill('payload@example.com');
-    await page.locator('[data-testid="title-input"]').fill('Payload Test Subject');
-    await setEmailText(page, 'This is a payload verification email body.');
-
-    await page.getByRole('button', { name: /Analyze/i }).click();
-    await expect(page.getByText('Analysis Result')).toBeVisible();
+    await analyzerPage.gotoHome();
+    await analyzerPage.fillForm(
+      'payload@example.com',
+      'Payload Test Subject',
+      'This is a payload verification email body.'
+    );
+    await analyzerPage.clickAnalyze();
+    await analyzerPage.expectAnalysisResultVisible();
 
     expect(receivedPayload).toEqual(
       expect.objectContaining({
@@ -43,12 +44,13 @@ test.describe('Analyzer request behavior e2e', () => {
   });
 
   test('disables form controls while analysis is in progress', async ({ page }) => {
+    const analyzerPage = new AnalyzerPage(page);
     let releaseResponse!: () => void;
     const responseGate = new Promise<void>((resolve) => {
       releaseResponse = resolve;
     });
 
-    await page.route('http://localhost:8000/analyze', async (route) => {
+    await analyzerPage.stubAnalyzeRequest(async (route) => {
       await responseGate;
       await route.fulfill({
         status: 200,
@@ -65,25 +67,19 @@ test.describe('Analyzer request behavior e2e', () => {
       });
     });
 
-    await page.goto('/');
-
-    await page.locator('[data-testid="sender-input"]').fill('loading@example.com');
-    await page.locator('[data-testid="title-input"]').fill('Loading state subject');
-    await setEmailText(page, 'Please verify loading state behavior while request is pending.');
-
-    await page.getByRole('button', { name: /Analyze/i }).click();
-
-    await expect(page.getByRole('combobox', { name: /GPT-4.1/i })).toBeDisabled();
-    await expect(page.locator('[data-testid="sender-input"]')).toBeDisabled();
-    await expect(page.locator('[data-testid="title-input"]')).toBeDisabled();
-    await expect(page.locator('[data-testid="email-input"]')).toBeDisabled();
-    await expect(page.locator('[data-testid="analyze-button"]')).toBeDisabled();
-    await expect(page.locator('[data-testid="clear-button"]')).toBeDisabled();
+    await analyzerPage.gotoHome();
+    await analyzerPage.fillForm(
+      'loading@example.com',
+      'Loading state subject',
+      'Please verify loading state behavior while request is pending.'
+    );
+    await analyzerPage.clickAnalyze();
+    await analyzerPage.expectAllFormControlsDisabled();
 
     releaseResponse();
 
-    await expect(page.getByText('Analysis Result')).toBeVisible();
-    await expect(page.locator('[data-testid="analyze-button"]')).toBeEnabled();
-    await expect(page.locator('[data-testid="clear-button"]')).toBeEnabled();
+    await analyzerPage.expectAnalysisResultVisible();
+    await analyzerPage.expectAnalyzeEnabled();
+    await analyzerPage.expectClearEnabled();
   });
 });

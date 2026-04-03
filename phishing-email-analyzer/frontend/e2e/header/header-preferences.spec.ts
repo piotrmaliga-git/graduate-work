@@ -1,8 +1,10 @@
 import { Theme } from './../../src/app/utils/enums/enums';
 import { expect, test } from '@playwright/test';
+import { HeaderPage } from '../page-objects/header.page';
 
 test.describe('Header preferences e2e', () => {
   test('language toggle sends locale preference update', async ({ page }) => {
+    const headerPage = new HeaderPage(page);
     let localePayload: Record<string, unknown> | null = null;
 
     await page.route('**/api/locale', async (route) => {
@@ -14,35 +16,27 @@ test.describe('Header preferences e2e', () => {
       });
     });
 
-    await page.goto('/pl?source=e2e#section');
+    await headerPage.goto('/pl?source=e2e#section');
 
-    await expect(page.locator('[data-testid="language-toggle"]')).toHaveText('EN');
+    await headerPage.expectLanguageToggleText('EN');
 
-    await page.locator('[data-testid="language-toggle"]').click();
+    await headerPage.clickLanguageToggle();
 
     await expect.poll(() => localePayload).toEqual({ locale: 'en' });
   });
 
   test('theme toggle updates document class and persisted preference', async ({ page }) => {
-    await page.addInitScript(() => {
-      localStorage.removeItem('app-theme-mode');
-    });
+    const headerPage = new HeaderPage(page);
+    await headerPage.setTheme('light');
 
-    await page.goto('/');
+    await headerPage.goto('/');
 
-    const initiallyDark = await page.evaluate(() =>
-      document.documentElement.classList.contains('app-dark')
-    );
+    const initiallyDark = (await headerPage.getThemeState()).isDark;
 
-    await page.locator('[data-testid="theme-toggle"]').click();
+    await headerPage.clickThemeToggle();
 
     await expect
-      .poll(async () =>
-        page.evaluate(() => ({
-          isDark: document.documentElement.classList.contains('app-dark'),
-          stored: localStorage.getItem('app-theme-mode'),
-        }))
-      )
+      .poll(async () => headerPage.getThemeState())
       .toEqual({
         isDark: !initiallyDark,
         stored: initiallyDark ? Theme.light : Theme.dark,

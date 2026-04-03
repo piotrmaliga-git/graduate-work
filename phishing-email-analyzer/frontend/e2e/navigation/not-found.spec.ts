@@ -1,16 +1,20 @@
 import { expect, test } from '@playwright/test';
+import { AnalyzerPage } from '../page-objects/analyzer.page';
+import { NotFoundPage } from '../page-objects/not-found.page';
 
 test.describe('Navigation e2e', () => {
   test('navigating to unknown route shows not found page and allows return home', async ({
     page,
   }) => {
+    const notFoundPage = new NotFoundPage(page);
+    const analyzerPage = new AnalyzerPage(page);
     await page.goto('/not-existing-route');
 
-    await expect(page.getByRole('heading', { name: '404' })).toBeVisible();
-    await expect(page.getByText('Page not found.')).toBeVisible();
+    await notFoundPage.expectLoaded();
+    await notFoundPage.expectMessageVisible();
 
-    await page.getByRole('link', { name: 'Go back to home' }).click();
+    await notFoundPage.clickGoHome();
     await expect(page).toHaveURL(/\/$/);
-    await expect(page.getByRole('heading', { level: 1, name: /Phishing Email/i })).toBeVisible();
+    await analyzerPage.expectHomeHeadingVisible();
   });
 });
