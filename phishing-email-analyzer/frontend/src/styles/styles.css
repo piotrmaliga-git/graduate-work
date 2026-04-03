@@ -101,12 +101,19 @@
   }
 
   .field label {
-    @apply text-sm font-semibold text-slate-700;
+    @apply text-sm font-semibold;
+    color: var(--p-text-color);
   }
 
   .field input,
   .field textarea {
     width: 100%;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: var(--p-text-muted-color);
+    opacity: 1;
   }
 
   .char-counter {
