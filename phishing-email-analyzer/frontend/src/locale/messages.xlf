@@ -248,7 +248,7 @@
         <note category="meaning">notFound</note>
       </notes>
       <segment>
-        <source> Page not found. </source>
+        <source> Page not found </source>
       </segment>
     </unit>
     <unit id="notFound.goHome">

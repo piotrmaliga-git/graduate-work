@@ -207,8 +207,8 @@
     </unit>
     <unit id="notFound.message">
       <segment>
-        <source>Page not found.</source>
-        <target>Strona nie zostala znaleziona.</target>
+        <source>Page not found</source>
+        <target>Strona nie zostala znaleziona</target>
       </segment>
     </unit>
     <unit id="notFound.goHome">
