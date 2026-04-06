@@ -14,9 +14,15 @@
       "sourceRoot": "src",
       "prefix": "",
       "i18n": {
-        "sourceLocale": "en",
+        "sourceLocale": {
+          "code": "en",
+          "subPath": ""
+        },
         "locales": {
-          "pl": "src/locale/messages.pl.xlf"
+          "pl": {
+            "translation": "src/locale/messages.pl.xlf",
+            "subPath": "pl"
+          }
         }
       },
       "architect": {
@@ -100,6 +106,25 @@
             },
             "pl-dev": {
               "localize": ["pl"]
+            },
+            "i18n": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "550kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all",
+              "localize": true
+            },
+            "i18n-dev": {
+              "localize": true
             }
           },
           "defaultConfiguration": "production"
@@ -118,6 +143,9 @@
             },
             "pl": {
               "buildTarget": "app:build:development,pl-dev"
+            },
+            "i18n": {
+              "buildTarget": "app:build:development,i18n-dev"
             }
           },
           "defaultConfiguration": "development"
