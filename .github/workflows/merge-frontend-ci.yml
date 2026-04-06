@@ -30,7 +30,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build:i18n
+        run: npm run build:prod
 
   unit-tests:
     name: Unit tests
