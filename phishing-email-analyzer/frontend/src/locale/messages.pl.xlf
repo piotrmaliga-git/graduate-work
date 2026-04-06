@@ -16,13 +16,13 @@
     <unit id="analyzer.senderPlaceholder">
       <segment>
         <source>e.g. attacker@example.com</source>
-        <target>np. atakujacy@example.com</target>
+        <target>np. atakujący@example.com</target>
       </segment>
     </unit>
     <unit id="analyzer.emailTitleLabel">
       <segment>
         <source>Email Title/Subject</source>
-        <target>Temat wiadomosci</target>
+        <target>Temat wiadomości</target>
       </segment>
     </unit>
     <unit id="analyzer.emailTitlePlaceholder">
@@ -34,25 +34,25 @@
     <unit id="analyzer.emailContentLabel">
       <segment>
         <source>Email content</source>
-        <target>Tresc wiadomosci</target>
+        <target>Treść wiadomości</target>
       </segment>
     </unit>
     <unit id="analyzer.emailContentAria">
       <segment>
         <source>Email content</source>
-        <target>Tresc wiadomosci</target>
+        <target>Treść wiadomości</target>
       </segment>
     </unit>
     <unit id="analyzer.emailContentPlaceholder">
       <segment>
         <source>Paste email content here...</source>
-        <target>Wklej tutaj tresc wiadomosci...</target>
+        <target>Wklej tutaj treść wiadomości...</target>
       </segment>
     </unit>
     <unit id="analyzer.characters">
       <segment>
         <source>characters</source>
-        <target>znakow</target>
+        <target>znaków</target>
       </segment>
     </unit>
     <unit id="analyzer.analyzeButton">
@@ -64,19 +64,19 @@
     <unit id="analyzer.clearButton">
       <segment>
         <source>Clear</source>
-        <target>Wyczysc</target>
+        <target>Wyczyść</target>
       </segment>
     </unit>
     <unit id="analyzer.errorEmptyEmail">
       <segment>
         <source>Please enter email text</source>
-        <target>Prosze wprowadzic tresc wiadomosci</target>
+        <target>Proszę wprowadzić treść wiadomości</target>
       </segment>
     </unit>
     <unit id="footer.copyright">
       <segment>
         <source>© 2026 Phishing Email Analyzer. All rights reserved.</source>
-        <target>© 2026 Phishing Email Analyzer. Wszelkie prawa zastrzezone.</target>
+        <target>© 2026 Phishing Email Analyzer. Wszelkie prawa zastrzeżone.</target>
       </segment>
     </unit>
     <unit id="header.logoAlt">
@@ -94,37 +94,37 @@
     <unit id="header.subtitle">
       <segment>
         <source> Paste an email below and select an AI model to analyze phishing risk </source>
-        <target> Wklej wiadomosc e-mail i wybierz model AI, aby przeanalizowac ryzyko phishingu </target>
+        <target>Wklej wiadomość e-mail poniżej i wybierz model AI, aby przeanalizować ryzyko phishingu</target>
       </segment>
     </unit>
     <unit id="header.switchToLight">
       <segment>
         <source>Switch to light mode</source>
-        <target>Przelacz na tryb jasny</target>
+        <target>Przełącz na tryb jasny</target>
       </segment>
     </unit>
     <unit id="header.switchToDark">
       <segment>
         <source>Switch to dark mode</source>
-        <target>Przelacz na tryb ciemny</target>
+        <target>Przełącz na tryb ciemny</target>
       </segment>
     </unit>
     <unit id="header.switchToEnglish">
       <segment>
         <source>Switch to English</source>
-        <target>Przelacz na jezyk angielski</target>
+        <target>Przełącz na język angielski</target>
       </segment>
     </unit>
     <unit id="header.switchToPolish">
       <segment>
         <source>Switch to Polish</source>
-        <target>Przelacz na jezyk polski</target>
+        <target>Przełącz na język polski</target>
       </segment>
     </unit>
     <unit id="info.cardHeader">
       <segment>
         <source>Available Models</source>
-        <target>Dostepne modele</target>
+        <target>Dostępne modele</target>
       </segment>
     </unit>
     <unit id="info.models.gpt41">
@@ -136,25 +136,25 @@
     <unit id="info.models.gemini25Pro">
       <segment>
         <source>Google&apos;s latest LLM with advanced understanding</source>
-        <target>Najnowszy model jezykowy Google z zaawansowanym rozumieniem</target>
+        <target>Najnowszy model językowy Google z zaawansowanym rozumieniem</target>
       </segment>
     </unit>
     <unit id="info.models.mistral7B">
       <segment>
         <source>Open-source model from Mistral AI with 7 billion parameters</source>
-        <target>Model open-source od Mistral AI z 7 miliardami parametrow</target>
+        <target>Model open-source od Mistral AI z 7 miliardami parametrów</target>
       </segment>
     </unit>
     <unit id="info.models.llamaCloud">
       <segment>
         <source>Meta&apos;s LLM accessed via cloud API</source>
-        <target>Model jezykowy Meta dostepny przez API w chmurze</target>
+        <target>Model językowy Meta dostępny przez API w chmurze</target>
       </segment>
     </unit>
     <unit id="info.models.bielik24bit">
       <segment>
         <source>Polish language model running locally in 4-bit quantization mode</source>
-        <target>Polski model jezykowy dzialajacy lokalnie w trybie kwantyzacji 4-bitowej</target>
+        <target>Polski model językowy działający lokalnie w trybie kwantyzacji 4-bitowej</target>
       </segment>
     </unit>
     <unit id="results.cardHeader">
@@ -190,7 +190,7 @@
     <unit id="results.detailedAnalysis">
       <segment>
         <source>Detailed Analysis</source>
-        <target>Szczegolowa analiza</target>
+        <target>Szczegółowa analiza</target>
       </segment>
     </unit>
     <unit id="results.responseTime">
@@ -208,13 +208,13 @@
     <unit id="notFound.message">
       <segment>
         <source>Page not found</source>
-        <target>Strona nie zostala znaleziona</target>
+        <target>Strona nie została znaleziona</target>
       </segment>
     </unit>
     <unit id="notFound.goHome">
       <segment>
         <source>Go back to home</source>
-        <target>Wroc na strone glowna</target>
+        <target>Wróć na stronę główną</target>
       </segment>
     </unit>
     <unit id="pipes.noReason">
