@@ -62,7 +62,8 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "localize": true
             },
             "development": {
               "optimization": false,
@@ -106,22 +107,6 @@
             },
             "pl-dev": {
               "localize": ["pl"]
-            },
-            "i18n": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "550kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
-              "outputHashing": "all",
-              "localize": true
             },
             "i18n-dev": {
               "localize": true
